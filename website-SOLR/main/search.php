@@ -47,79 +47,61 @@
 		<div class="container-fluid" style="padding-top: 9%;">
 		    <div class="row">
 		        <div class="col-xs-8 col-md-6 pull-left">
-		            <form id="searchform">		
+		            <form id="searchform" class="">		
 						<fieldset>
 						
 							
-							<div class="row">
-								<div class="col-md-4 col-xs-5">
-									<label><?php echo $lang['SEARCH_POI']; ?></label>
-								</div>
-								<div class="col-md-8 col-xs-7">
-									<input id="person" type="text" placeholder="<?php echo $lang['SEARCH_POI2']; ?>" class="selectize-input">
-								</div> 
+							<div class="form-group">
+								<label for="person" class=""><?php echo $lang['SEARCH_POI']; ?></label>
+								<input id="person" type="text" placeholder="<?php echo $lang['SEARCH_POI2']; ?>" class="selectize-input">
+							</div> 
+
+
+							<div class="form-group">
+								<label for="select-occ" class=""><?php echo $lang['SEARCH_OCC']; ?></label>
+								<select id="select-occ" placeholder="<?php echo $lang['SEARCH_OCC2']; ?>"></select>
 							</div>
 
-							<div class="row">
-								<div class="col-md-4 col-xs-5">
-									<label><?php echo $lang['SEARCH_OCC']; ?></label>
+							<div class="form-group">
+								<label for="select-place"><?php echo $lang['SEARCH_PLACE2']; ?></label>
+								<select id="select-place" placeholder="<?php echo $lang['SEARCH_PLACE']; ?>"></select>		
+									
+								<div class="form-group">
+									<label for="box_birthplace" class="checkbox-inline"><?php echo $lang['SEARCH_CHECK_BOX1:']; ?></label>
+									<input type="checkbox" id="box_birthplace">
+									<label for="box_deathplace" class="checkbox-inline"><?php echo $lang['SEARCH_CHECK_BOX2:']; ?></label>    				                                           <input type="checkbox" id="box_deathplace">
+									<label for="box_activityplace" class="checkbox-inline"><?php echo $lang['SEARCH_CHECK_BOX3:']; ?></label>
+									<input type="checkbox" id="box_activityplace" >
 								</div>
-								<div class="col-md-8 col-xs-7">
-									<select id="select-occ" placeholder="<?php echo $lang['SEARCH_OCC2']; ?>"></select>
-								</div> 
 							</div>
+							
+							<div class="form-group">				
+						
+	 							
+								<div class="form-group">
+									<label for="slider"><?php echo $lang['SEARCH_TIME']; ?></label><div id="slider"></div>											   </div>
 
-							<div class="row">
-								<div class="col-md-4 col-xs-5">
-									<label><?php echo $lang['SEARCH_PLACE2']; ?></label>
+								<div class="form-group">
+									<label for="eraSelector"><?php echo $lang['SEARCH_ERA']; ?></label>
+									<select id="eraSelector">
+									<option value="0"><?php echo $lang['SEARCH_ERA_CHOICES'][0];?></option>
+										<option value="1"><?php echo $lang['SEARCH_ERA_CHOICES'][1];?></option>
+										<option value="2"><?php echo $lang['SEARCH_ERA_CHOICES'][2];?></option>
+										<option value="3"><?php echo $lang['SEARCH_ERA_CHOICES'][3];?></option>	 	
+										<option value="4"><?php echo $lang['SEARCH_ERA_CHOICES'][4];?></option>
+										<option value="5"><?php echo $lang['SEARCH_ERA_CHOICES'][5];?></option>
+										<option value="6"><?php echo $lang['SEARCH_ERA_CHOICES'][6];?></option>
+										<option value="7"><?php echo $lang['SEARCH_ERA_CHOICES'][7];?></option>
+										<option value="8"><?php echo $lang['SEARCH_ERA_CHOICES'][8];?></option>
+										<option value="9"><?php echo $lang['SEARCH_ERA_CHOICES'][9];?></option>
+										<option value="10"><?php echo $lang['SEARCH_ERA_CHOICES'][10];?></option>
+										<option value="11"><?php echo $lang['SEARCH_ERA_CHOICES'][11];?></option>
+										<option value="12"><?php echo $lang['SEARCH_ERA_CHOICES'][12];?></option>
+										<option value="13"><?php echo $lang['SEARCH_ERA_CHOICES'][13];?></option>	 			
+									</select>
 								</div>
-								<div class="col-md-8 col-xs-7">
-									<select id="select-place" placeholder="<?php echo $lang['SEARCH_PLACE']; ?>"></select>
-								</div> 
+
 							</div>
-
-							<p>
-								<div class="row" id="checkboxes">
-									<div class="col-md-4">
-										<input type="checkbox" id="box_birthplace" ><?php echo $lang['SEARCH_CHECK_BOX1:']; ?>
-									</div>
-									<div class="col-md-4">
-										<input type="checkbox" id="box_deathplace" ><?php echo $lang['SEARCH_CHECK_BOX2:']; ?>
-									</div>
-									<div class="col-md-4">
-										<input type="checkbox" id="box_activityplace" ><?php echo $lang['SEARCH_CHECK_BOX3:']; ?>
-									</div>
-								</div>
-							</p>
-							<br>	
-
-
-							<p>
-	 							<span><b><?php echo $lang['SEARCH_TIME']; ?></b></span>
-	 						</p>
-
-	 						<p>
-								<div id="slider"></div>							
-
-							</p>
-
-							<label><?php echo $lang['SEARCH_ERA']; ?></label>
-							<select id="eraSelector">
-								<option value="0"><?php echo $lang['SEARCH_ERA_CHOICES'][0];?></option>
-								<option value="1"><?php echo $lang['SEARCH_ERA_CHOICES'][1];?></option>
-								<option value="2"><?php echo $lang['SEARCH_ERA_CHOICES'][2];?></option>
-								<option value="3"><?php echo $lang['SEARCH_ERA_CHOICES'][3];?></option>	 	
-								<option value="4"><?php echo $lang['SEARCH_ERA_CHOICES'][4];?></option>
-								<option value="5"><?php echo $lang['SEARCH_ERA_CHOICES'][5];?></option>
-								<option value="6"><?php echo $lang['SEARCH_ERA_CHOICES'][6];?></option>
-								<option value="7"><?php echo $lang['SEARCH_ERA_CHOICES'][7];?></option>
-								<option value="8"><?php echo $lang['SEARCH_ERA_CHOICES'][8];?></option>
-								<option value="9"><?php echo $lang['SEARCH_ERA_CHOICES'][9];?></option>
-								<option value="10"><?php echo $lang['SEARCH_ERA_CHOICES'][10];?></option>
-								<option value="11"><?php echo $lang['SEARCH_ERA_CHOICES'][11];?></option>
-								<option value="12"><?php echo $lang['SEARCH_ERA_CHOICES'][12];?></option>
-								<option value="13"><?php echo $lang['SEARCH_ERA_CHOICES'][13];?></option>	 			
-							</select>
 						</fieldset>	
 					</form>
 					<button class="btn btn-primary" id="btn-search"><?php echo $lang['SEARCH_SUBMIT']; ?></button>
