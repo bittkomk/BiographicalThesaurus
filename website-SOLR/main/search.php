@@ -46,7 +46,7 @@
 	<body>
 		<div class="container-fluid" style="padding-top: 9%;">
 		    <div class="row">
-		        <div class="col-xs-6 col-md-4 pull-left">
+		        <div class="col-xs-8 col-md-6 pull-left">
 		            <form id="searchform">		
 						<fieldset>
 							
@@ -126,7 +126,7 @@
 					<button class="btn btn-primary" id="btn-search"><?php echo $lang['SEARCH_SUBMIT']; ?></button>
 					<button class="btn btn-primary" type="reset" onclick='window.location="search.php"' ><?php echo $lang['SEARCH_RESET']; ?></button>
 				</div>
-		        <div id="map" class="col-xs-6 col-md-8 pull-right"></div>
+		        <div id="map" class="col-xs-4 col-md-6 pull-right"></div>
 
 		        <div id="dialog-confirm"></div>
 
