@@ -57,7 +57,7 @@
 									<label><?php echo $lang['SEARCH_POI']; ?></label>
 								</div>
 								<div class="col-md-8 col-xs-7">
-									<input id="person" type="text" placeholder="<?php echo $lang['SEARCH_POI2']; ?>">
+									<input id="person" type="text" placeholder="<?php echo $lang['SEARCH_POI2']; ?>" class="selectize-input">
 								</div> 
 							</div>
 
