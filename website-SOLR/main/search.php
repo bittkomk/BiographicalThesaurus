@@ -49,8 +49,7 @@
 		        <div class="col-xs-8 col-md-6 pull-left">
 		            <form id="searchform">		
 						<fieldset>
-							
-							<legend><?php echo $lang['SEARCH_TITLE']; ?></legend>
+						
 							
 							<div class="row">
 								<div class="col-md-4 col-xs-5">
