@@ -47,12 +47,12 @@
 
 					<!--<h1>Thesaurus Search Results</h1>-->
 					<div class="pull-right">
-						<select id="coreSelector">
+						<!--<select id="coreSelector">
 							<option>gnd3</option>
 							<option>gnd</option>
 							<option>gnd2</option>
-						</select>
-						<button id="btn-toggle-map" >></button>
+						</select>-->
+						<button id="btn-toggle-map" ></button>
 					</div>
 
 					<br><br>

@@ -446,7 +446,7 @@ $(document).ready(function () {
 		toggleMap(true);	
 	});
 
-	$('#coreSelector').on('change', function (e) {
+	/*$('#coreSelector').on('change', function (e) {
 		var val = $("#coreSelector option:selected").val();
 		var query = window.location.search.substring(1);
 		vars = query.split("&");
@@ -462,7 +462,7 @@ $(document).ready(function () {
 			newURL += pair[0] + "=" + pair[1];
 		}
 		window.location = newURL;
-	});
+	});*/
 
 	/*** Function calls
 	*
@@ -474,9 +474,10 @@ $(document).ready(function () {
 
 	if(core && core != "") {
 		query.setCore(core);
-		if(core == "gnd3") {
+	/*	if(core == "gnd3") {
 			$('#coreSelector')[0].selectedIndex = 0;
 		}
+	*/
 	}
 
 	if(person && person != "") {
