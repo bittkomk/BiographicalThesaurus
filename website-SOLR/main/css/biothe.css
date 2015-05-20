@@ -161,3 +161,8 @@
 	 table.dataTable table.litratureTable td {
 	 	padding: 4px;
 	 }
+
+
+	.dataTables_wrapper .dataTables_filter {
+		float: left;
+	}

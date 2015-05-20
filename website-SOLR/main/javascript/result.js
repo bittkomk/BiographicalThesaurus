@@ -331,6 +331,7 @@ $(document).ready(function () {
 						'<option value="-1">Alle</option>'+
 						'</select>'
 				},
+				"dom": '<"top"f>rt<"bottom"lp><"clear">' // cf. https://datatables.net/examples/basic_init/dom.html for a description of the syntax used
 		  	} 
 	  	);
 		dtable.draw();
