@@ -81,9 +81,9 @@ $(document).ready(function () {
 		hideMap = !hideMap;
 	};
 
-	function searchToText () {
+	function searchToText (numSearchResults) {
 		var eras = ['...', 'während der <b>Antike</b>', 'während dem <b>Mittelalter</b>', 'während dem <b>Frühmittelatler</b>', 'während dem <b>Hochmittelalter</b>', 'während dem <b>Spätmittelalter</b>', 'während der <b>Neuzeit</b>', 'während der <b>frühen Neuzeit</b>', 'während des <b>Konfessionellem Zeitalters</b>', 'wärhend des <b>Absolutismus und der Aufklärung</b>', 'während der <b>Moderne</b>', 'vom <b>Alten zum Deutschen Reich</b>', 'wärhend des <b>Deutschen Reiches</b>', 'seit der <b>Bundesrepublik Deutschland</b>']
-		var text = '<div>Ergebnisse der Suche "';
+		var text = '<div><b>' + numSearchResults + '</b> Ergebnisse für die  Suche <i>';
 		if(person && person != "") {
 			text += 'nach dem Namen <b>' + decodeURI(person) + '</b> ';
 		}
@@ -108,11 +108,12 @@ $(document).ready(function () {
 		if(occ) {
 			text += 'mit dem <b>Beruf ' + decodeURI(occ) + '</b>';
 		}
-		text += '"</div>'
+		text += '</i></div>'
 		return text;
 	};
 
 	function processData (data) {
+		console.log("data in results.js#processData", data);
 		fillTable(data);
 		//Add Marker for Birth, Death and Activity
 		$.each(data, function (index, dat) {
@@ -148,7 +149,7 @@ $(document).ready(function () {
 		});
 		map.addMarkerLayer(placeType);
 		map.showLegend();
-		$('#search_text_field').html(searchToText());
+		$('#search_text_field').html(searchToText(data.length));
 	};
 
 	function clearTable () {
