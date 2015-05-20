@@ -25,11 +25,13 @@ $(document).ready(function () {
 		}),
 		$selectOcc = $('#select-occ').selectize({
 			sortField: {field: 'text'},
-			openOnFocus: false
+			openOnFocus: false,
+			maxOptions: 10000
 		}),
     	$selectPlace = $('#select-place').selectize({
 			sortField: {field: 'text'},
-			openOnFocus: false
+			openOnFocus: false,
+			maxOptions: 10000
 		}),
 		selectizeOcc = $selectOcc[0].selectize,
 		selectizePlace = $selectPlace[0].selectize;
@@ -325,14 +327,16 @@ $(document).ready(function () {
 	// Query places and professions and add them to the select elements
 	suggester = new Suggester();
 	suggester.setCore('gnd3');
-	suggester.setField('professionsOrOccupations');
+	suggester.setField('professionOrOccupation');
 	$.getJSON(suggester.buildURL(), function(result){
-		profession_data = result.facet_counts.facet_fields.professionsOrOccupations;
+		profession_data = result.facet_counts.facet_fields.professionOrOccupation;
 		$.each(profession_data, function (index, value) {
 			if(index % 2) {
 				//do nothing
 			} else {
-				selectizeOcc.addOption(new Option(value, index/2));
+				if((/^[a-z]+/i).test(value)) {
+					selectizeOcc.addOption(new Option(value, index/2));
+				}
 			}
 		});
 		data_loaded ++;
@@ -347,7 +351,9 @@ $(document).ready(function () {
 			if(index % 2) {
 				//do nothing
 			} else {
-				selectizePlace.addOption(new Option(value, index/2));
+				if((/^[a-z]+/i).test(value)) {
+					selectizePlace.addOption(new Option(value, index/2));
+				}
 			}
 		});
 		data_loaded ++;
