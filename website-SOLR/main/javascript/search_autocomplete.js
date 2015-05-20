@@ -9,8 +9,8 @@ $( "#person" ).autocomplete(
     source: function( request, response ) {
       suggester = new Query(false);
       suggester.setCore("gnd3");
-      suggester.setRows("7");
-      suggester.setPerson(request.term);
+      suggester.setRows("10");
+      suggester.setPerson(request.term+"*");
 
       $.getJSON(suggester.buildURL(), function(result){
       		var tmp = result.response.docs;
