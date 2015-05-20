@@ -89,7 +89,7 @@
 					</div>
 					-->
 					<button id="printButton" class="btn btn-primary btn-sm"><?php echo $lang['RESULT_PRINT']; ?></button>
-					<button id="newSearchButton" class="btn btn-danger btn-sm"><?php echo $lang['RESULT_START_NEW']; ?></button>
+					<a href="search.php" class="btn btn-danger btn-sm"><?php echo $lang['RESULT_START_NEW']; ?></a>
 				</p>
 			</span>
 		</div>
