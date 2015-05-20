@@ -43,7 +43,7 @@
 				<!-- container for the result form (the result form is on the left hand-side) -->
 				<div id="result-container" class="col-xs-6 col-md-6 pull-left"> 
 					<span style="padding-left:  0pt"><a href="#" onclick="history.go(-1);return false;">&lt;&lt; <?php echo $lang['RESULT_GO_BACK']; ?></a></span>
-					<span style="padding-left:  20pt"><a href="search.php">&lt;&lt; <?php echo $lang['RESULT_START_NEW']; ?></a></span>
+					<!-- <span style="padding-left:  20pt"><a href="search.php">&lt;&lt; <?php echo $lang['RESULT_START_NEW']; ?></a></span> -->
 
 					<!--<h1>Thesaurus Search Results</h1>-->
 					<div class="pull-right">
@@ -89,6 +89,7 @@
 					</div>
 					-->
 					<button id="printButton" class="btn btn-primary btn-mini"><?php echo $lang['RESULT_PRINT']; ?></button>
+					<button id="newSearchButton" class="btn btn-danger btn-mini"><?php echo $lang['RESULT_START_NEW']; ?></button>
 				</p>
 			</span>
 		</div>
