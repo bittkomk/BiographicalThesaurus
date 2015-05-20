@@ -321,15 +321,17 @@ $(document).ready(function () {
 				"oLanguage": {
 				  	"sSearch": "Ergebnisse filtern:",
 				  	"sInfo": "Ergebnisse _START_ bis _END_ von _TOTAL_",
-				  	"sNext": "Nächste",
-				  	"sPrevious": "Vorherige",
-				  	"sLengthMenu": 'Anzeigen <select>'+
+					"oPaginate": {
+					  	"sNext": "Nächste",
+					  	"sPrevious": "Vorherige",
+					},
+				  	"sLengthMenu": '<select>'+
 						'<option value="10">10</option>'+
 						'<option value="25">25</option>'+
 						'<option value="50">50</option>'+
 						'<option value="100">100</option>'+
 						'<option value="-1">Alle</option>'+
-						'</select>'
+						'</select> Personen anzeigen'
 				},
 				"dom": '<"top"f>rt<"bottom"lp><"clear">' // cf. https://datatables.net/examples/basic_init/dom.html for a description of the syntax used
 		  	} 
