@@ -72,7 +72,7 @@
 			<span style="text-align:left">
 				<p>
 					
-					<button id="exportButton" class="btn btn-primary btn-mini"><?php echo $lang['RESULT_EXPORT']; ?></button>
+					<button id="exportButton" class="btn btn-primary btn-sm"><?php echo $lang['RESULT_EXPORT']; ?></button>
 					<!--
 					<div id="exportButton" class="btn-group">
 						<button class="btn btn-primary btn-mini"><?php echo $lang['RESULT_EXPORT']; ?></button>
@@ -88,8 +88,8 @@
 						</ul>
 					</div>
 					-->
-					<button id="printButton" class="btn btn-primary btn-mini"><?php echo $lang['RESULT_PRINT']; ?></button>
-					<button id="newSearchButton" class="btn btn-danger btn-mini"><?php echo $lang['RESULT_START_NEW']; ?></button>
+					<button id="printButton" class="btn btn-primary btn-sm"><?php echo $lang['RESULT_PRINT']; ?></button>
+					<button id="newSearchButton" class="btn btn-danger btn-sm"><?php echo $lang['RESULT_START_NEW']; ?></button>
 				</p>
 			</span>
 		</div>
