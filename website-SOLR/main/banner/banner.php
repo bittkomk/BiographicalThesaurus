@@ -35,7 +35,7 @@
 						  include('banner_results.php');
 						  break;  
 						  
-						  case 'explore':
+						  /*case 'explore':
 						  include('banner_explore.php');
 						  break; 
 						  
@@ -45,7 +45,7 @@
 						  
 						  case 'endpoint':
 						  include('banner_endpoint.php');
-						  break;
+						  break;*/
 						 
 						  default:
 						  include('banner_home.php');
