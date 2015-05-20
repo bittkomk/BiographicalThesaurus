@@ -12,6 +12,7 @@
     <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 
+
 	<!-- Include Stylesheets -->
 	<!-- jQuery.ui -->
 	<link rel="stylesheet" href="../assets/css/jQuery-1.10.3/jquery-ui.css" type="text/css" /> 
@@ -145,6 +146,8 @@
 		<script src="javascript/jQAllRangeSliders-withRuler-min.js"></script>
 		<!-- Leaflet -->
 		<script src="../assets/leaflet-0.6.4/leaflet.js"></script>
+		<!-- Underscore -->
+		<script src="../assets/js/underscore-min.js"></script>
 
 		<script src="../assets/js/selectize.min.js"></script>
 		<!-- Leaflet.markerCluster -->
