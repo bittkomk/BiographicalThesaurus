@@ -149,6 +149,7 @@ var details = new function() {
 	this.loadLitrature = function(target, gndID, title) {
 		
 		var lobidURL = "http://lobid.org/resource?" + target + "=" + gndID;
+		var literatureLinkPrefix = "http://lobid.org/nwbib/";
 
 		$.ajax({
 			url : lobidURL,
@@ -253,7 +254,7 @@ var details = new function() {
 
 							litTable += '</td><td style="background-color:#e3e9f0;">';
 
-							litTable += '<a href="' + lit.titleID + '" target="_blank">' + lit.title + '</a>';
+							litTable += '<a href="' + literatureLinkPrefix + (lit.titleID.split("/")).pop() + '" target="_blank">' + lit.title + '</a>';
 
 							//litTable += '</td><td>';
 

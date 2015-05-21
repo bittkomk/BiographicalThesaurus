@@ -127,6 +127,8 @@
 		<script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
 		<!-- jQuery.dataTables -->
 		<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+		<!-- Underscore.js -->
+		<script src="../assets/js/underscore-min.js"></script>
 
 		<!-- Custom files -->
 		<script src="javascript/Query.js" type="text/javascript"></script>
