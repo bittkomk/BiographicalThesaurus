@@ -113,7 +113,7 @@ $(document).ready(function () {
 	};
 
 	function processData (data) {
-		console.log("data in results.js#processData", data);
+		//console.log("data in results.js#processData", data);
 		fillTable(data);
 		//Add Marker for Birth, Death and Activity
 		$.each(data, function (index, dat) {
@@ -356,17 +356,17 @@ $(document).ready(function () {
 			else {
 				// Close all
 				$('#datatable').find('tr').each (function() {
-				var tr = $(this).closest('tr');
-				var td = $('td.details-control', tr);
-			   	var row = dtable.row( tr );
-				if ( row.child.isShown() ) {
-					// This row is already open - close it
-					row.child.hide();
-					//history.pushState(null, "", window.location.href.replace('&showDetails=' + gndID, ''));
-					td.removeClass('shown');
-					tr.removeClass('shown');
-				}
-			});
+					var tr = $(this).closest('tr');
+					var td = $('td.details-control', tr);
+					var row = dtable.row( tr );
+					if ( row.child.isShown() ) {
+						// This row is already open - close it
+						row.child.hide();
+						//history.pushState(null, "", window.location.href.replace('&showDetails=' + gndID, ''));
+						td.removeClass('shown');
+						tr.removeClass('shown');
+					}
+				});
 				// Open this row
 				//Load Details
 				map.focusOnSpecificMarker(gndID);

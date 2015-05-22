@@ -163,6 +163,11 @@
 	 }
 
 
-	.dataTables_wrapper .dataTables_filter {
-		float: left;
+	.details_dummy {
+		width: 5%;
+	}
+
+	.details {
+		width: 95%;
+		background-color: #cccccc;
 	}

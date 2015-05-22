@@ -11,8 +11,8 @@ var details = new function() {
 		$.getJSON(solrQueryUrl, function(result){
 			
 			var table = details.getDetailTable(gndID, result.response.docs[0]);
-			row.child(table).show();
-			$(row.child()).css("background-color", "#cccccc");
+			row.child("<tr><td class='details_dummy'></td><td class='details'>"+table+"</td></tr>").show();
+//			$(row.child()).css("background-color", "#cccccc");
 
 			details.loadDetailImg(gndID);
 
