@@ -162,6 +162,10 @@
 	 	padding: 4px;
 	 }
 
+	.dataTables_wrapper .dataTables_filter {
+		float: left;
+	}
+
 
 	.details_dummy {
 		width: 5%;
