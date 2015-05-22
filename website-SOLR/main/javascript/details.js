@@ -64,9 +64,10 @@ var details = new function() {
 		'</table>';
 
 
-		daten += '<div id="divauthor' + gndID + '"></div>'
 
 		daten += '<div id="divsubject' + gndID + '"></div>'
+		daten += '<div id="divauthor' + gndID + '"></div>'
+
 
 		daten += '<div id="divref' + gndID + '"></div>'
 
