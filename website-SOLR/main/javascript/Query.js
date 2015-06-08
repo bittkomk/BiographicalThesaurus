@@ -113,7 +113,7 @@ Query.prototype.buildURL = function () {
 			if(attributeUsed) {
 				srchstrng += ' AND ';
 			}
-			if(this.core == 'gnd3') {
+			if(this.core == 'gnd') {
 				srchstrng += '((yearOfBirth:[' + this.start + ' TO ' + this.end + ']';
 				srchstrng += ' OR yearOfDeath:[' + this.start + ' TO ' + this.end + '])';
 				srchstrng += ' OR (yearOfBirth:[-500 TO ' + this.start + ']';
@@ -127,7 +127,7 @@ Query.prototype.buildURL = function () {
 			if(attributeUsed) {
 				srchstrng += ' AND ';
 			}
-			if(this.core == 'gnd3') {
+			if(this.core == 'gnd') {
 				srchstrng += '(yearOfBirth:[' + this.start + ' TO ' + new Date().getFullYear() + ']';
 				srchstrng += ' OR yearOfDeath:[' + this.start + ' TO ' + new Date().getFullYear() + '])';
 			} else {
@@ -141,7 +141,7 @@ Query.prototype.buildURL = function () {
 			if(attributeUsed) {
 				srchstrng += ' AND ';
 			}
-			if(this.core == 'gnd3') {
+			if(this.core == 'gnd') {
 				srchstrng += '(yearOfBirth:[-500 TO ' + this.end + ']';
 				srchstrng += ' OR yearOfDeath:[-500 TO ' + this.end + '])';
 			} else {

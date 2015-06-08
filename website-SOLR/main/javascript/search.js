@@ -200,7 +200,7 @@ $(document).ready(function () {
 			enddate = selectedDate.max;
 		}
 
-		var suffix = "results.php?core=gnd3&";
+		var suffix = "results.php?core=gnd&";
 		var target = '';
 		var targetControl = target;
 		if (person && person != "") {
@@ -326,7 +326,7 @@ $(document).ready(function () {
 
 	// Query places and professions and add them to the select elements
 	suggester = new Suggester();
-	suggester.setCore('gnd3');
+	suggester.setCore('gnd');
 	suggester.setField('professionOrOccupation');
 	$.getJSON(suggester.buildURL(), function(result){
 		profession_data = result.facet_counts.facet_fields.professionOrOccupation;

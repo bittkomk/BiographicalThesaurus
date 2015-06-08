@@ -6,7 +6,7 @@ var details = new function() {
 	// General load function
 	this.load = function(gndID, row) {
 
-		var solrQueryUrl = 'http://ubsvirt112.uni-muenster.de:8181/solr/gnd3/select?q=id:' + gndID + '&wt=json&json.wrf=?&indent=true';	
+		var solrQueryUrl = 'http://ubsvirt112.uni-muenster.de:8181/solr/gnd/select?q=id:' + gndID + '&wt=json&json.wrf=?&indent=true';	
 
 		$.getJSON(solrQueryUrl, function(result){
 			

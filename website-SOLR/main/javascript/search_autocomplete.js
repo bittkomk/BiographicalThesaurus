@@ -8,7 +8,7 @@ $( "#person" ).autocomplete(
   {
     source: function( request, response ) {
       suggester = new Query(false);
-      suggester.setCore("gnd3");
+      suggester.setCore("gnd");
       suggester.setRows("10");
       suggester.setPerson(request.term+"*");
 
@@ -45,7 +45,7 @@ $( "#place" ).autocomplete(
     source: function( request, response ) {
       suggester = new Suggester();
       suggester.setField("placeOfBirth_tm");
-      suggester.setCore("gnd3");
+      suggester.setCore("gnd");
       suggester.setSearchTerm(request.term.toLowerCase());
 
       $.getJSON(suggester.buildURL(), function(result){
@@ -97,7 +97,7 @@ $("#occ").autocomplete(
     source: function( request, response ) {
       suggester = new Suggester();
       suggester.setField("professionOrOccupation_tm");
-      suggester.setCore("gnd3");
+      suggester.setCore("gnd");
       suggester.setSearchTerm(request.term.toLowerCase());
 
       $.getJSON(suggester.buildURL(), function(result){
