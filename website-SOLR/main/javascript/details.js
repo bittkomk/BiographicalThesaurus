@@ -12,7 +12,7 @@ var details = new function() {
 			
 			var table = details.getDetailTable(gndID, result.response.docs[0]);
 			row.child("<tr><td class='details_dummy'></td><td class='details'>"+table+"</td></tr>").show();
-//			$(row.child()).css("background-color", "#cccccc");
+
 
 			details.loadDetailImg(gndID);
 
@@ -30,9 +30,9 @@ var details = new function() {
 		var daten = '';
 
 		daten += '<p><b>Biogramm</b></p>' + 
-		'<table class="personDetails" style="background-color:#e3e9f0; width:100%">' +
-		'<tr><td style="width:120px; background-color:#e3e9f0;"><b>Name : </b></td><td style="background-color:#e3e9f0;"><b>' + person.preferredNameForThePerson + '</b></td>' +
-		'<td rowspan="12" style="width:150px; background-color:#e3e9f0; vertical-align:top;"><div id="img' + gndID + '" style="text-align:right;"></div></td></tr>';
+		'<table class="personDetails">' +
+		'<tr><td class="biogrammNameLabel"><b>Name : </b></td><td class="biogrammName"><b>' + person.preferredNameForThePerson + '</b></td>' +
+		'<td rowspan="12" class="biogrammPicture"><div id="img' + gndID + '" class="biogrammPicture"></div></td></tr>';
 		
 		
 		daten += details.getDetailRow('Abweichende Namen', person.variantNameForThePerson);
@@ -60,7 +60,7 @@ var details = new function() {
 		daten += details.getDetailReferenceRow('Datensatz', person.gndIdentifier, person.gndIdentifier);
 
 
-		daten += '<tr style="height:auto; background-color:#e3e9f0;"><td>&nbsp;</td></tr>' +
+		daten += '<tr class="biogrammDummyRow""><td>&nbsp;</td></tr>' +
 		'</table>';
 
 
@@ -131,7 +131,7 @@ var details = new function() {
 			if ($.isArray(value))
 				fValue = value.join('; ');
 
-			return '<tr style="background-color:#e3e9f0; vertical-align:top;"><td>' + key + '&nbsp;:</td><td>' + fValue + '</td></tr>';
+			return '<tr class="biogrammDetailRow"><td>' + key + '&nbsp;:</td><td>' + fValue + '</td></tr>';
 		}
 		else
 			return '';
@@ -141,7 +141,7 @@ var details = new function() {
 	this.getDetailReferenceRow = function(key, linkValue, textValue) {
 
 		if (linkValue != undefined && linkValue != '' && textValue != undefined && textValue != '')
-			return '<tr style="background-color:#e3e9f0;"><td>' + key + '&nbsp;:</td><td>' + '<a href="' + linkValue + '" target="_blank">' + decodeURIComponent(textValue) + '</a>' + '</td></tr>';
+			return '<tr class="biogrammDetailReferenceRow"><td>' + key + '&nbsp;:</td><td>' + '<a href="' + linkValue + '" target="_blank">' + decodeURIComponent(textValue) + '</a>' + '</td></tr>';
 		else
 			return '';
 	};
@@ -226,7 +226,7 @@ var details = new function() {
 						litTable = '<br><p><b>' + title + '</b></p>' +
 						'<table id="lit' + target + gndID + '" class="litratureTable" >' + 
 						'<thead>' + 
-						'<tr style="background-color:#e3e9f0;">'+
+						'<tr>'+
 						'<th>Autor</th>' + 
 						           		//'<th>Mitwirkende</th>' + 
 						           		'<th>Titel</th>' +
@@ -235,7 +235,7 @@ var details = new function() {
 						                '</thead><tbody>';
 
 						                $.each( litArray, function( i, lit ){
-						                	litTable += '<tr style="background-color:#e3e9f0;"><td>';
+						                	litTable += '<tr><td>';
 
 						                	if (lit.authors != undefined && lit.authors.length > 0) {
 
@@ -253,7 +253,7 @@ var details = new function() {
 							// 	});
 							// };
 
-							litTable += '</td><td style="background-color:#e3e9f0;">';
+							litTable += '</td><td>';
 
 							litTable += '<a href="' + literatureLinkPrefix + (lit.titleID.split("/")).pop() + '" target="_blank">' + lit.title + '</a>';
 

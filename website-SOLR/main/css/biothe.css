@@ -154,9 +154,72 @@
 	 	background-image: none;
 	 }
 
-	 table.dataTable table.personDetails td {
+	 table.dataTable table.personDetails  {
 	 	padding: 4px;
+		background-color: #e3e9f0;
+		width: 100%;	
+	}	
+
+
+	 table.dataTable table.personDetails tbody tr:hover {
+		background-color: #e3e9f0;
+	}
+
+
+	 table.dataTable table td.biogrammNameLabel {
+		width: 120px;
+		background-color: #e3e9f0;
 	 }
+	
+	 table.dataTable table td.biogrammName {
+		background-color: #e3e9f0;
+	 }
+
+	 table.dataTable table td.biogrammPicture {
+		width: 150px;
+		background-color: #e3e9f0;
+		vertical-align: top;
+	}
+
+
+	 table.dataTable table td div.biogrammPicture {
+		text-align: right; 
+	}
+
+	 table.dataTable table tr.biogrammDetailRow {
+		background-color: #e3e9f0;
+		vertical-align: top;
+	}
+
+	 table.dataTable table tr.biogrammDetailReferenceRow {
+		background-color: #e3e9f0;
+	}
+
+	 table.dataTable table tr.biogrammDummyRow {
+		background-color: #e3e9f0;
+		height: auto;
+	}
+
+         table.dataTable table.litratureTable tr {
+		background-color: #e3e9f0;
+	}
+
+         table.dataTable table.litratureTable tr.odd {
+		background-color: #e3e9f0;
+	}
+         table.dataTable table.litratureTable tr.even {
+		background-color: #e3e9f0;
+	}
+         table.dataTable table.litratureTable tr.odd>.sorting_1 {
+		background-color: #e3e9f0;
+	}
+         table.dataTable table.litratureTable tr.even>.sorting_1 {
+		background-color: #e3e9f0;
+	}
+
+
+
+
 
 	 table.dataTable table.litratureTable td {
 	 	padding: 4px;
