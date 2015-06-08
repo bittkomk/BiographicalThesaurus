@@ -287,7 +287,7 @@ $(document).ready(function () {
 	* Calls a window asking to submit the query.
 	*/
 	$(map).on('draw:created', function () {
-		$( "#dialog-confirm" ).html('<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>Wollen Sie die Suche ausführen?');
+		$( "#dialog-confirm" ).html('<span class="ui-icon ui-icon-circle-check"></span>Wollen Sie die Suche ausführen?');
 		$( "#dialog-confirm" ).dialog({
 			resizable: false,
 			height:200,

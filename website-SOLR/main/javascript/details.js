@@ -105,10 +105,10 @@ var details = new function() {
 				var refs = '';
 
 				refs += '<br><p><b>Weiteres zur Person</b></p>' + 
-				'<table class="personDetails" style="background-color:#e3e9f0; width:100%">'
+				'<table class="personDetails">'
 
 				for (var i = result.response.docs.length - 1; i >= 0; i--) {
-					refs += '<tr><td style="background-color:#e3e9f0;">';
+					refs += '<tr><td>';
 					refs += '<a href="' + result.response.docs[i].linkTarget + '" target="_blank">' + result.response.docs[i].linkDescription + '</a>';
 					refs += '</td></tr>';
 				};

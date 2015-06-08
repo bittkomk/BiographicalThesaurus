@@ -236,5 +236,10 @@
 
 	.details {
 		width: 95%;
-		background-color: #cccccc;
+		background-color: #cccccc;	
+	}
+
+	#dialog-confirm span {
+		float: left;
+		margin: 0 7px 50px 0;
 	}
