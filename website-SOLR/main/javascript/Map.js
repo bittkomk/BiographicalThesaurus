@@ -271,7 +271,7 @@ var Map = L.Map.extend({
 
 			var _popupid = 'popup-' + city.replace(/ /g, '').replace(",", "").replace("<", "").replace(">", "").replace(")", "").replace("(", "");
 			var person;
-			var content = '<div style="width:100%;" id="' + _popupid + '">';
+			var content = '<div class="mapMarkerPopup" id="' + _popupid + '">';
 			content += '<b>Stadt: ' + city + '</b>';
 			content += '<ul>';
 			content += '<li><a href="#tabs-1">Geboren(' + this.cities[city].stats[0] + ')</a></li>';
@@ -370,14 +370,14 @@ var Map = L.Map.extend({
 		legend.onAdd = function (map) {
 
 		    var div = L.DomUtil.create('div', 'info legend'),
-		        colors = ['#66c2a5', '#fc8d62', '#8da0cb'],
+//		        colors = ['#66c2a5', '#fc8d62', '#8da0cb'],
 		        labels = ['Geburtsort', 'Sterbeort', 'Wirkungsort'];
 
 		    // loop through our density intervals and generate a label with a colored square for each interval
-		    var inner = '<div style="background-color:#FFFFFF; border: 2px solid;"><b>Legende</b>';
-		    inner += '<div style="margin-top:5px;">'
-		    for (var i = 0; i < colors.length; i++) {	
-		        inner += '<div style="background-color:' + colors[i] + '"><b>' + labels[i];
+		    var inner = '<div class="mapLegendBox"><b>Legende</b>';
+		    inner += '<div class="mapLegendMargin">'
+		    for (var i = 0; i < labels.length; i++) {	
+		        inner += '<div class="mapLegendColor' + labels[i] + '"><b>' + labels[i];
 		        inner += '</b></div>'; 
 		    }
 		    inner += '</div></div>'

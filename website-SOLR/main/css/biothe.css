@@ -243,3 +243,30 @@
 		float: left;
 		margin: 0 7px 50px 0;
 	}
+
+
+	.mapMarkerPopup {
+		width: 100%;	
+	}
+
+
+	.mapLegendBox {
+		background-color: #ffffff;
+		border: 2px solid;
+	}
+
+	.mapLegendMargin {
+		margin-top: 5px;
+	}
+
+	.mapLegendColorGeburtsort {
+		background-color: #66c2a6;
+	}
+
+	.mapLegendColorSterbeort {
+		background-color: #fc8d62;
+	}
+
+	.mapLegendColorWirkungsort {
+		background-color: #8da0cb;
+	}
