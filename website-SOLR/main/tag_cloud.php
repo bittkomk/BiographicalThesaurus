@@ -35,7 +35,7 @@ include 'common.php';
   
 	 <div class="container-fluid"> 
 		   <!-- container for the form of the tag cloud -->
-			<div class="container" style="padding-top: 12%;">
+			<div class="container tagCloudContainer">
 			<h1><?php echo $lang['CLOUD_TITLE']; ?></h1>
 			</div>
 			
