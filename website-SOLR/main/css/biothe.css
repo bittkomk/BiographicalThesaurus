@@ -138,7 +138,14 @@
 		padding: 10px;
 		display:none;
 	  }
+
+	#datatable {
+		width: 100%;
+	}
 	 
+	#datatable td.invisible, #datatable th.invisible {
+		display:none;
+	}
 
 	 #datatable td.details-control {
 	 	background-image: url("../images/down_16.png");
@@ -150,8 +157,9 @@
 	 	background-image: url("../images/up_16.png");
 	 }
 
-	 #datatable td.details-control.headrow {
+	 #datatable th.details-control.headrow {
 	 	background-image: none;
+		width: 18px;
 	 }
 
 	 table.dataTable table.personDetails  {

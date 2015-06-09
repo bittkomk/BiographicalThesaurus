@@ -20,7 +20,7 @@ $(document).ready(function () {
 		person = getParam('person'),
 		place = getParam('place'),
 		hideMap = false,
-		$table = $('<table id="datatable" class="display" style="width=100%;"></table>'),
+		$table = $('<table id="datatable" class="display"></table>'),
 		$head = $("<thead></thead>"),
 		$body = $("<tbody></tbody>"),
 		$hline = $("<tr></tr>"),
@@ -287,8 +287,8 @@ $(document).ready(function () {
 		$hline.append($("<th></th>").html("<b>Geb. Datum</b>"));
 		$hline.append($("<th></th>").html("<b>Ster. Datum</b>"));
 		$hline.append($("<th></th>").html("<b>Beruf</b>"));
-		$hline.append($("<th style=\"display:none;\"></th>").html("<b>GND ID</b>"));
-		$hline.append($("<th class=\"details-control sorting_disabled headrow\" rowspan=\"1\" colspan=\"1\" aria-label=\"\" style=\"width: 18px;\"></th>").html(""));
+		$hline.append($("<th class=\"invisible\"></th>").html("<b>GND ID</b>"));
+		$hline.append($("<th class=\"details-control sorting_disabled headrow\" rowspan=\"1\" colspan=\"1\" aria-label=\"\"></th>").html(""));
 		$head.append($hline);
 		$table.append($head);
 		$.each(data, function (index, dat) {
@@ -310,7 +310,7 @@ $(document).ready(function () {
 				});
 			}
 			$bline.append( $( "<td></td>" ).html( occ ) );
-			$bline.append( $( "<td class=\"gndid\" style=\"display:none;\"></td>" ).html( dat.id ) );	
+			$bline.append( $( "<td class=\"gndid invisible\"></td>" ).html( dat.id ) );	
 			$bline.append( $( "<td class=\"details-control\"></td>" ).html('') );
 			$body.append( $bline );
 		});
