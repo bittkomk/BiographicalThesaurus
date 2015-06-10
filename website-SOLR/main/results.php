@@ -39,11 +39,11 @@
 
 		<div class="container-fluid"> 
 
-			<div class="row" style= "padding-top: 9%;">
+			<div id="resultsContainerRow" class="row" >
 				<!-- container for the result form (the result form is on the left hand-side) -->
 				<div id="result-container" class="col-xs-6 col-md-6 pull-left"> 
-					<span style="padding-left:  0pt"><a href="#" onclick="history.go(-1);return false;">&lt;&lt; <?php echo $lang['RESULT_GO_BACK']; ?></a></span>
-					<!-- <span style="padding-left:  20pt"><a href="search.php">&lt;&lt; <?php echo $lang['RESULT_START_NEW']; ?></a></span> -->
+					<span id="resultsBackLink"><a href="#" onclick="history.go(-1);return false;">&lt;&lt; <?php echo $lang['RESULT_GO_BACK']; ?></a></span>
+
 
 					<!--<h1>Thesaurus Search Results</h1>-->
 					<div class="pull-right">
@@ -59,17 +59,17 @@
 					<p>
 						<div id="search_text_field"></div>
 					</p>
-					<div id="error" style="color:red; display:none;"><br/><br/><?php echo $lang['RESULT_NO_RESULT']; ?></div>
+					<div id="error"><br/><br/><?php echo $lang['RESULT_NO_RESULT']; ?></div>
 
 					<div id="loadingDiv"><img src="images/ajax-loader.gif"></div>
-					<div id="resultdiv" style="height:400px;"></div>
+					<div id="resultdiv"></div>
 					<!-- this span element is used to store the title (in german or in english) of the additional window displayed when the results are exported as HTML -->
-					<span id="titleExportedResults" style="display:none"><?php echo $lang['TITLE_EXPORTED_RESULTS']; ?></span> 
+					<span id="titleExportedResults"><?php echo $lang['TITLE_EXPORTED_RESULTS']; ?></span> 
 				</div>
 				<!-- container for the map (the map is on the right hand-side) -->
-				<div id="map" class="col-xs-6 col-md-6 pull-right" data-spy="affix" data-offset-top="0" class="col-xs-6 col-md-6 pull-right"></div>
+				<div id="map" class="col-xs-6 col-md-6 pull-right" data-spy="affix" data-offset-top="0"></div>
 			</div>
-			<span style="text-align:left">
+			<span id="resultsButtons">
 				<p>
 					
 					<button id="exportButton" class="btn btn-primary btn-sm"><?php echo $lang['RESULT_EXPORT']; ?></button>

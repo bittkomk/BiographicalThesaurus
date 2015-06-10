@@ -294,3 +294,29 @@
 	.bannerLanguageSelection {
 		padding: 10px 20px 10px;
 	}
+
+	#resultsContainerRow {
+		padding-top: 9%;
+	}
+
+	#resultsBackLink {
+		padding-left: 0pt;
+	}
+
+	#resultsButtons {
+		text-align: left;
+	}
+	
+	#error {
+		color: red;
+		display: none;
+	}
+
+	#resultdiv {
+		height: 400px;	
+
+	}
+
+	#titleExportedResults {
+		display: none;
+	}
