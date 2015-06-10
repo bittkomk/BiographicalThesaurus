@@ -282,3 +282,15 @@
 	.tagCloudContainer {
 		padding-top: 12%;
 	}
+
+
+	#bannerContainer {
+		background-color: white;
+		overflow: hidden;
+		width: 100%;
+		margin: 0;
+	}
+
+	.bannerLanguageSelection {
+		padding: 10px 20px 10px;
+	}

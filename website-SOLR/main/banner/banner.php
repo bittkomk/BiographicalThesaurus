@@ -3,7 +3,7 @@
 <!-- container for links such as search, home, and so on -->
     <div class="navbar navbar-inverse navbar-fixed-top">
 	  	<!-- Logos of the WWU and ULB-->   	
-	    <div class="container" style="background-color:white; overflow:hidden; width:100%; margin:0">
+	    <div id="bannerContainer" class="container">
         <div id="logo1"><a title="Startseite WWU" href="http://www.uni-muenster.de/" ><img src="../main/images/wwu_logo.gif" alt="Logo der Universität Münster (Link zur Startseite der Universität Münster)" title="Logo der Universität Münster (Link zur Startseite der Universität Münster)" width="278" height="60"/></a></div>
         <div id="logo2"><a title="ULB Münster" href="http://www.ulb.uni-muenster.de/"><img src="../main/images/logo.gif" alt="Logo der Universitäts- und Landesbibliothek Münster (Link zur Startseite der ULB)" title="Logo der Universitäts- und Landesbibliothek Münster (Link zur Startseite der ULB)"/></a></div>
         </div>	
@@ -52,7 +52,7 @@
 					}		
 				  ?> 
             </ul>
-			<div style="padding: 10px 20px 10px;" align="right" class="text"><?php echo $lang['SELECT LANGUAGE']; ?> 
+			<div align="right" class="text bannerLanguageSelection"><?php echo $lang['SELECT LANGUAGE']; ?> 
                 <a href="?lang=de"  title="Deutsch"><img src="languages/flags/de.png" alt="Deutsch"/></a> 
                 <a href="?lang=en"  title="English"><img src="languages/flags/gb.png" alt="English"/></a>
 			</div>
