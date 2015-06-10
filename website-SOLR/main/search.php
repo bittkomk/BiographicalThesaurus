@@ -45,7 +45,7 @@
 		include 'banner/banner.php';
 	?>
 	<body>
-		<div class="container-fluid" style="padding-top: 9%;">
+		<div id="searchContainer" class="container-fluid">
 		    <div class="row">
 		        <div class="col-xs-8 col-md-6 pull-left">
 		            <form id="searchform" class="">		

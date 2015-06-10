@@ -320,3 +320,8 @@
 	#titleExportedResults {
 		display: none;
 	}
+
+
+	#searchContainer {
+		padding-top: 9%;
+	}
