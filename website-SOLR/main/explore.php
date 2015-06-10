@@ -17,11 +17,11 @@ include 'common.php';
   
 	 <div class="container-fluid"> 
 		   <!-- container for the form of the tag cloud -->
-			<div class="container" style="padding-top: 12%;">
+			<div id="exploreContainer" class="container">
 			<h1><?php echo $lang['EXPLORE_TITLE']; ?></h1>
 			</div>
 			
-			<div class="container" style="margin-bottom: 50%">
+			<div id="exploreHelpContainer" class="container">
 			<?php echo $lang['EXPLORE_HELP']; ?>
 			</div>
 
