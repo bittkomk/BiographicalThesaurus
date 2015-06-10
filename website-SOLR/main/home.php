@@ -32,7 +32,7 @@ include 'common.php';
 	 ?>
     
 	<!-- specific content for the current page -->
-	<div class="container-fluid" style="width:80%; padding-top: 12%; margin: 0 auto;" > 
+	<div id="homeContainer" class="container-fluid" > 
 	
 	  <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
@@ -40,7 +40,7 @@ include 'common.php';
         <p><?php echo $lang['STIS_HERO_TEXT']; ?></p>
         <br>
         <p><?php echo $lang['STIS_HERO_FREE_SEARCH']; ?></p>
-        <input id="searchstring" type="text" size="10" style="width: 75%" placeholder="<?php echo $lang['STIS_HERO_FREE_SEARCH_TEXT']; ?>">
+        <input id="searchstring" type="text" size="10" placeholder="<?php echo $lang['STIS_HERO_FREE_SEARCH_TEXT']; ?>">
 		<table width="75%">
 			<tr>
 				<td align="center"><a class="btn btn-primary btn-large" onclick="goToResults()"><?php echo $lang['STIS_HERO_BUTTON2']; ?></a></td>

@@ -343,3 +343,14 @@
 	#pagesContainer {
 		display: none;
 	}
+
+
+	#homeContainer {
+		width: 80%;
+		padding-top: 12%;
+		margin: 0 auto;
+	}
+
+	#searchstring {
+		width: 75%;
+	}
