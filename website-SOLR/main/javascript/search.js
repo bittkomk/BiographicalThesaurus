@@ -24,14 +24,20 @@ $(document).ready(function () {
 	        maxZoom: 18,
 		}),
 		$selectOcc = $('#select-occ').selectize({
-			sortField: {field: 'text'},
+			sortField: {field: 'occupation'},
+			valueField: 'occupation',
+			labelField: 'occupation',
+			searchField: 'occupation',
 			openOnFocus: false,
 			maxOptions: 10000
 		}),
     	$selectPlace = $('#select-place').selectize({
-			sortField: {field: 'text'},
+			sortField: {field: 'place'},
+			valueField: 'place',
+			labelField: 'place',
+			searchField: 'place',
 			openOnFocus: false,
-			maxOptions: 10000
+			maxOptions: 10000			
 		}),
 		selectizeOcc = $selectOcc[0].selectize,
 		selectizePlace = $selectPlace[0].selectize;
@@ -40,6 +46,18 @@ $(document).ready(function () {
 	/*** Functions
 	*
 	*/
+
+	/* Cf. http://stackoverflow.com/questions/12147410/different-utf-8-signature-for-same-diacritics-umlauts-2-binary-ways-to-write and http://www.utf8-chartable.de/unicode-utf8-table.pl?start=768 for some context info */
+	function replaceStrangeUmlautChars(str) {
+		str = str.replace(/O\u0308/g, "Ö");
+		str = str.replace(/o\u0308/g, "ö");
+		str = str.replace(/U\u0308/g, "Ü");
+		str = str.replace(/u\u0308/g, "ü");
+		str = str.replace(/A\u0308/g, "Ä");
+		str = str.replace(/a\u0308/g, "ä");
+
+		return str;
+	}
 
 	/***
 	* Extract parameter from the URL
@@ -335,7 +353,8 @@ $(document).ready(function () {
 				//do nothing
 			} else {
 				if((/^[a-z]+/i).test(value)) {
-					selectizeOcc.addOption(new Option(value, index/2));
+					selectizeOcc.addOption({ id: index/2,
+								 occupation: replaceStrangeUmlautChars(value) });
 				}
 			}
 		});
@@ -346,13 +365,14 @@ $(document).ready(function () {
     });
 	suggester.setField('placeOfBirth');
 	$.getJSON(suggester.buildURL(), function(result){
-		profession_data = result.facet_counts.facet_fields.placeOfBirth;
-		$.each(profession_data, function (index, value) {
+		place_data = result.facet_counts.facet_fields.placeOfBirth;
+		$.each(place_data, function (index, value) {
 			if(index % 2) {
 				//do nothing
 			} else {
 				if((/^[a-z]+/i).test(value)) {
-					selectizePlace.addOption(new Option(value, index/2));
+					selectizePlace.addOption({ id: index,
+								   place: replaceStrangeUmlautChars(value)});
 				}
 			}
 		});
