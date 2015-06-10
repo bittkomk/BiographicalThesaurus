@@ -325,3 +325,21 @@
 	#searchContainer {
 		padding-top: 9%;
 	}
+
+
+	#queryresultsdiv {
+		padding-top: 12%;
+	}
+
+
+	#resultsPerPageContainer {
+		display: none;
+	}
+
+	#resultsPerPage {
+		width: 50pt;	
+	}
+
+	#pagesContainer {
+		display: none;
+	}

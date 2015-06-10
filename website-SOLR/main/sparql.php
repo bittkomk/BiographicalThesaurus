@@ -15,7 +15,7 @@ include 'common.php';
 	 ?>
     
 	<!-- specific content for the current page -->
-	<div id="queryresultsdiv" class="container-fluid" style = "padding-top: 12%;"> 
+	<div id="queryresultsdiv" class="container-fluid"> 
 	    <div class="container">				
 		<?php echo $lang['SPARQL_TOP']; ?>
 		<textarea id="sparqlQuery" rows="15" class="field span12">
@@ -30,9 +30,9 @@ select * where
 		</textarea><br/>
 		
 		<button type="submit" class="btn btn-primary" onclick="submitQuery()"><?php echo $lang['SPARQL_SUBMIT']; ?></button><br/><br><div id="loadingDiv"><img src="images/ajax-loader.gif"></div><br/> 
-		<div id="resultsPerPageContainer" align="right" style="display:none">
+		<div id="resultsPerPageContainer" align="right">
 			Results per page:
-			<select id="resultsPerPage" style="width: 50pt" onchange="gotoPage(1)">
+			<select id="resultsPerPage" onchange="gotoPage(1)">
 				<option>10</option>
 				<option selected>20</option>
 				<option>30</option>
@@ -40,7 +40,7 @@ select * where
 				<option>50</option>
 			</select>
 		</div>
-		<div id="pagesContainer" align="center" style="display:none">
+		<div id="pagesContainer" align="center">
 					<?php echo $lang['RESULT_NUMBER_OF_RESULTS'];?> <span id="pages"></span>
 		 </div>
 		<div id="resultdiv"></div>
