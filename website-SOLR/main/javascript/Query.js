@@ -1,4 +1,4 @@
-var Query = function(personSearch) {
+var Query = function(personSearch, substringSearch) {
 	this.basePath = "http://ubsvirt112.uni-muenster.de:8181/solr/";
 	this.core = "collection1";
 	this.rows = "20";
@@ -11,6 +11,9 @@ var Query = function(personSearch) {
 	this.spatialField = null;
 	this.queryReturn = [];
 	this.personSearch = personSearch;
+	this.substringSearch = substringSearch || false;
+	this.sortField = null;
+	this.sortDirection = "asc";
 };
 
 Query.prototype.setRows = function (rows) {
@@ -57,6 +60,14 @@ Query.prototype.setReturn = function (queryReturn) {
 	this.queryReturn.push(queryReturn);
 };
 
+Query.prototype.setSortField = function (sortField) {
+	this.sortField = sortField;
+};
+
+Query.prototype.setSortDirection = function (sortDirection) {
+	this.sortDirection = sortDirection;
+};
+
 /** This function right now is not beeing used. Used before to execute a query and trigger an event after the response got recieved
 *
 */
@@ -74,24 +85,26 @@ Query.prototype.buildURL = function () {
 	url = this.basePath + this.core + '/'; 
 	
 	attributeUsed = false;
+	var leftModifier = ""; // (this.substringSearch) ? '*' : '';
+	var rightModifier = (this.substringSearch) ? '*' : '';
 	
 	srchstrng = "select?q=";
 	
 	if(this.person) {
 		if(this.personSearch) {
 	    	persons = decodeURIComponent(this.person);
-	    	persons = persons.split(" ");
+	    	persons = _.compact(persons.split(" "));
 	    	$.each(persons, function (index) {
 	    		if(index != 0) {
 	    			srchstrng += ' AND ';
 	    		}
-	    		srchstrng += '(preferredNameForThePerson_tm:' + persons[index];
-	    		srchstrng += ' OR variantNameForThePerson_tm:' + persons[index] + ')';
+	    		srchstrng += '(preferredNameForThePerson_tm:' + leftModifier + persons[index] + rightModifier;
+	    		srchstrng += ' OR variantNameForThePerson_tm:' + leftModifier + persons[index] + rightModifier + ')';
 	    	});
 			attributeUsed = true;
 		} else {
-			srchstrng += 'preferredNameForThePerson_tm:' + this.person;
-			srchstrng += ' OR variantNameForThePerson_tm:' + this.person;
+			srchstrng += 'preferredNameForThePerson_tm:' + leftModifier + this.person + rightModifier;
+			srchstrng += ' OR variantNameForThePerson_tm:' + leftModifier + this.person + rightModifier;
 			attributeUsed = true;
 		}
 	}
@@ -198,6 +211,11 @@ Query.prototype.buildURL = function () {
 	}
 
 	url += srchstrng;
+
+
+	if(this.sortField) {
+		url += "&sort=" + this.sortField + "+" + this.sortDirection;
+	}
 
 	url += spatialUrl;
 

@@ -7,20 +7,43 @@
 $( "#person" ).autocomplete(
   {
     source: function( request, response ) {
-      suggester = new Query(false);
+      suggester = new Query(true, true);
       suggester.setCore("gnd");
-      suggester.setRows("10");
-      suggester.setPerson(request.term+"*");
+      suggester.setRows("100");
+
+      var term = request.term;
+      term = term.replace(/,/g, " ");
+      suggester.setPerson(term);
+
+//      suggester.setSortField("preferredNameForThePerson");
+
+      var pred = function(t, v) {
+		var regex1 = new RegExp("(\\b|^)"+t, "gi");
+		//var regex2 = new RegExp("(\b|^)" + t + ".*(\b|$)", "gi");
+//		console.log("check regex for", regex1, t, v, ":", regex1.test(v));
+		return regex1.test(v) // || regex2.test(v));
+      }	
 
       $.getJSON(suggester.buildURL(), function(result){
       		var tmp = result.response.docs;
       		var data=[];
 			
 			$.each(tmp, function (index, value) {
-        data.push(value.preferredNameForThePerson);
+				if(_.every(_.compact(term.split(" ")), function(t) {
+//					console.log("test prefName:", term, t, value.preferredNameForThePerson);
+					return pred(t, value.preferredNameForThePerson)})) { 
+					        data.push(value.preferredNameForThePerson);
+				}
+				if(value.variantNameForThePerson) {
+					$.each(value.variantNameForThePerson, function(index, variantName) {
+						if(_.every(_.compact(term.split(" ")), function(t) {
+								return pred(t, variantName)})) { 							data.push(variantName);
+						}
+					});
+				}
 			});     	
 
-	        response($.map(data, function(item) {
+	        response($.map(data.sort(), function(item) {
 	            return {
 	                label : item,
 	                value : item
