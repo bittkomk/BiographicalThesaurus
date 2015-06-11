@@ -42,6 +42,15 @@ $(document).ready(function () {
 		selectizeOcc = $selectOcc[0].selectize,
 		selectizePlace = $selectPlace[0].selectize;
 
+
+	$("input").keypress(function(event) {
+		if(event.which == 13) {
+			console.log("pressed return key");
+			event.preventDefault();
+			goToResults();
+		}
+	});
+
 	
 	/*** Functions
 	*
