@@ -284,8 +284,8 @@ $(document).ready(function () {
 		$hline.append($("<th></th>").html( "<b>Name</b>" ) );
 		$hline.append($("<th></th>").html("<b>Geburtsort</b>"));
 		$hline.append($("<th></th>").html("<b>Sterbeort</b>"));
-		$hline.append($("<th></th>").html("<b>Geburtsdatum</b>"));
-		$hline.append($("<th></th>").html("<b>Sterbedatum</b>"));
+		$hline.append($("<th></th>").html("<b>Geburtsjahr</b>"));
+		$hline.append($("<th></th>").html("<b>Todesjahr</b>"));
 		$hline.append($("<th></th>").html("<b>Beruf</b>"));
 		$hline.append($("<th class=\"invisible\"></th>").html("<b>GND ID</b>"));
 		$hline.append($("<th class=\"details-control sorting_disabled headrow\" rowspan=\"1\" colspan=\"1\" aria-label=\"\"></th>").html(""));
@@ -298,8 +298,8 @@ $(document).ready(function () {
 			$bline.append( $( "<td></td>" ).html( dat.placeOfBirth ) );
 			$bline.append( $( "<td></td>" ).html( dat.placeOfDeath ) );
 			// Dates
-			$bline.append( $( "<td></td>" ).html( details.dateFormat(dat.dateOfBirth) ) );
-			$bline.append( $( "<td></td>" ).html( details.dateFormat(dat.dateOfDeath) ) );	
+			$bline.append( $( "<td></td>" ).html( dat.yearOfBirth ));
+			$bline.append( $( "<td></td>" ).html( dat.yearOfDeath)) ;	
 			var occ = "";
 			if(dat.professionsOrOccupations) {
 				$.each(dat.professionsOrOccupations, function (index) {
