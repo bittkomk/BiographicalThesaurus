@@ -282,10 +282,10 @@ $(document).ready(function () {
 		$("#resultsPerPageContainer").show();
 		$hline.append($('<th class="select-all"></th>').html('<b>Alle <br> <input class="select-all" type="checkbox"></b>') );
 		$hline.append($("<th></th>").html( "<b>Name</b>" ) );
-		$hline.append($("<th></th>").html("<b>Geb. Ort</b>"));
-		$hline.append($("<th></th>").html("<b>Ster. Ort</b>"));
-		$hline.append($("<th></th>").html("<b>Geb. Datum</b>"));
-		$hline.append($("<th></th>").html("<b>Ster. Datum</b>"));
+		$hline.append($("<th></th>").html("<b>Geburtsort</b>"));
+		$hline.append($("<th></th>").html("<b>Sterbeort</b>"));
+		$hline.append($("<th></th>").html("<b>Geburtsdatum</b>"));
+		$hline.append($("<th></th>").html("<b>Sterbedatum</b>"));
 		$hline.append($("<th></th>").html("<b>Beruf</b>"));
 		$hline.append($("<th class=\"invisible\"></th>").html("<b>GND ID</b>"));
 		$hline.append($("<th class=\"details-control sorting_disabled headrow\" rowspan=\"1\" colspan=\"1\" aria-label=\"\"></th>").html(""));
