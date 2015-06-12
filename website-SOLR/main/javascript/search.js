@@ -57,13 +57,24 @@ $(document).ready(function () {
 	*/
 
 	/* Cf. http://stackoverflow.com/questions/12147410/different-utf-8-signature-for-same-diacritics-umlauts-2-binary-ways-to-write and http://www.utf8-chartable.de/unicode-utf8-table.pl?start=768 for some context info */
-	function replaceStrangeUmlautChars(str) {
+	function removeStrangeUmlautChars(str) {
 		str = str.replace(/O\u0308/g, "Ö");
 		str = str.replace(/o\u0308/g, "ö");
 		str = str.replace(/U\u0308/g, "Ü");
 		str = str.replace(/u\u0308/g, "ü");
 		str = str.replace(/A\u0308/g, "Ä");
 		str = str.replace(/a\u0308/g, "ä");
+
+		return str;
+	}
+
+	function insertStrangeUmlautChars(str) {		
+		str = str.replace(/Ö/g, "O\u0308");
+		str = str.replace(/ö/g, "o\u0308");
+		str = str.replace(/Ü/g, "U\u0308");
+		str = str.replace(/ü/g, "u\u0308");
+		str = str.replace(/Ä/g, "A\u0308");
+		str = str.replace(/ä/g, "a\u0308");
 
 		return str;
 	}
@@ -83,6 +94,14 @@ $(document).ready(function () {
 		return (false);
 	};
 
+
+	function restoreTerm(term) {
+		
+		var restoredTerm =  unquoteSearchTerm(removeStrangeUmlautChars(decodeURI(term)));
+		console.log("restore term", term, "to", restoredTerm);
+		return restoredTerm;
+	}
+	
 	/***
 	* Restore values after reloading the page.
 	* Values are stored in the URL.
@@ -107,14 +126,14 @@ $(document).ready(function () {
 			else {
 				//console.log("restore place form url", _place, decodeURI(_place));
 				_place = tmp;
-				$("#select-place").text(decodeURI(_place));
-				selectizePlace.setValue(decodeURI(_place));
-				selectizePlace.setTextboxValue(decodeURI(_place));
+				$("#select-place").text(restoreTerm(_place));
+				selectizePlace.setValue(restoreTerm(_place));
+				selectizePlace.setTextboxValue(restoreTerm(_place));
 			}
 		}
 		if(_person) {
-			$('#person').val(decodeURI(_person));
-			$('#person').text(decodeURI(_person));
+			$('#person').val(restoreTerm(_person));
+			$('#person').text(restoreTerm(_person));
 		}
 		if(_pType) {
 			_pType = _pType.split(',');
@@ -142,9 +161,9 @@ $(document).ready(function () {
 			$("#slider").editRangeSlider("values", selectedDate.min, selectedDate.max);
 		}
 		if(_occ) {
-			$("#select-occ").text(decodeURI(_occ));
-			selectizeOcc.setValue(decodeURI(_occ));
-			selectizeOcc.setTextboxValue(decodeURI(_occ));
+			$("#select-occ").text(restoreTerm(_occ));
+			selectizeOcc.setValue(restoreTerm(_occ));
+			selectizeOcc.setTextboxValue(restoreTerm(_occ));
 		}
 		if(_era) {
 			eraChangeFlag = true;
@@ -216,13 +235,24 @@ $(document).ready(function () {
 		
 	}
 
+
+	function unquoteSearchTerm(term) {
+		if(term.indexOf("{") == -1 && term.indexOf("\"") > -1) {
+			term = term.replace(/\"/g, "");
+			return term;
+		}
+		else {
+			return term;
+		}
+	}
+
 	/***
 	* Get all data inserted into the form and go to the results page
 	*/
 	function goToResults() {
 		var person = $('#person').val();
 		var occ = $('#select-occ').text();
-		var place = $('#select-place').text();
+		var place = insertStrangeUmlautChars($('#select-place').text());
 		placeTmp = map.returnPolygonShape();
 		if(placeTmp) {
 			place = placeTmp;
@@ -383,7 +413,7 @@ $(document).ready(function () {
 			} else {
 				if((/^[a-z]+/i).test(value)) {
 					selectizeOcc.addOption({ id: index/2,
-								 occupation: replaceStrangeUmlautChars(value) });
+								 occupation: removeStrangeUmlautChars(value) });
 				}
 			}
 		});
@@ -401,7 +431,7 @@ $(document).ready(function () {
 			} else {
 				if((/^[a-z]+/i).test(value)) {
 					selectizePlace.addOption({ id: index,
-								   place: replaceStrangeUmlautChars(value)});
+								   place: removeStrangeUmlautChars(value)});
 				}
 			}
 		});
