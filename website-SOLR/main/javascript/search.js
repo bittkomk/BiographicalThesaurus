@@ -45,7 +45,7 @@ $(document).ready(function () {
 
 	$("input").keypress(function(event) {
 		if(event.which == 13) {
-			console.log("pressed return key");
+			//console.log("pressed return key");
 			event.preventDefault();
 			goToResults();
 		}
@@ -90,6 +90,7 @@ $(document).ready(function () {
 	function restoreValues() {
 		if(_place) {
 			var tmp = _place;
+			//console.log("try restoring place: ", _place);
 			try {
 				_place = decodeURI(_place);
 				_place = JSON.parse(_place);
@@ -98,13 +99,17 @@ $(document).ready(function () {
 				}
 			} catch(e) {
 				// place is no object, so place is a city and not a polygon or circle
+
+			}
+			if(typeof _place != 'string') {
+				map.drawShape(_place.wkt, _place.type);
+			}
+			else {
+				//console.log("restore place form url", _place, decodeURI(_place));
 				_place = tmp;
 				$("#select-place").text(decodeURI(_place));
 				selectizePlace.setValue(decodeURI(_place));
 				selectizePlace.setTextboxValue(decodeURI(_place));
-			}
-			if(typeof _place != 'string') {
-				map.drawShape(_place.wkt, _place.type);
 			}
 		}
 		if(_person) {
@@ -196,6 +201,21 @@ $(document).ready(function () {
 		});
 	}
 
+
+	function quoteSearchTerm(term) {
+		// check whether term is unquoted string that does not
+		// serialize a json object...
+		if(term.indexOf("{") == -1 && term.indexOf(" ") > -1) {
+			term = "\"" + term + "\"";
+			term = term.replace(/\"\"/g, "\"");
+			return term;
+		}
+		else {
+			return term;
+		}
+		
+	}
+
 	/***
 	* Get all data inserted into the form and go to the results page
 	*/
@@ -249,7 +269,7 @@ $(document).ready(function () {
 			if(target != targetControl) {
 				target += "&"
 			}
-			target += "occ=" + occ;
+			target += "occ=" + quoteSearchTerm(occ);
 		}
 		if (place && place != "") {
 			if (placetype && placetype != "") {
@@ -266,7 +286,7 @@ $(document).ready(function () {
 			if(target != targetControl) {
 				target += "&"
 			}
-			target += "place=" + place;
+			target += "place=" + quoteSearchTerm(place);
 		}
 
 		if(era) {

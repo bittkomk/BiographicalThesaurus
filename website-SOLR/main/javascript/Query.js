@@ -188,10 +188,10 @@ Query.prototype.buildURL = function () {
 			}
 			$.each(this.spatialField, function (index) {
 				if(index == 0) {
-					srchstrng += that.spatialField[index] + "_tm:" + that.spatial;
+					srchstrng += that.spatialField[index] + "_tm:\"" + that.spatial + "\"";
 				} else {
 					srchstrng += ' OR '
-					srchstrng += that.spatialField[index] + "_tm:" + that.spatial;
+					srchstrng += that.spatialField[index] + "_tm:\"" + that.spatial + "\"";
 				}
 				if(attributeUsed) {
 					if(index == that.spatialField.length - 1) {
