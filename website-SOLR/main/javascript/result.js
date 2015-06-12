@@ -318,6 +318,7 @@ $(document).ready(function () {
 		$table.appendTo( $( "#resultdiv" ) );
 		dtable = $("#datatable").DataTable( 
 			{
+				"order": [[ 1, "asc" ]],
 				"oLanguage": {
 				  	"sSearch": "Ergebnisse filtern:",
 				  	"sInfo": "Ergebnisse _START_ bis _END_ von _TOTAL_",
