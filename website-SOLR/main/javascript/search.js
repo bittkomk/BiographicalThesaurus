@@ -4,7 +4,7 @@ $(document).ready(function () {
 	*/
 	var map = new Map('map').setView([51.962797, 7.621200], 8),
 		selectedDate = null,
-		lastDate = null,
+		//lastDate = null,
 		era,
 		eraChangeFlag = false,
 		profession_data,
@@ -52,22 +52,11 @@ $(document).ready(function () {
 		}
 	});
 
-	$("#beginDate, #endDate").keydown(function(event) {
+/*	$("#beginDate, #endDate").keydown(function(event) {
 		lastDate = $(event.currentTarget).val();
-	}); 	
+	}); 	*/
 
 	$("#beginDate, #endDate").keyup(function(event) {
-		if(parseInt($("#beginDate").val()) > parseInt($("#endDate").val())) {
-			alert("Geburtsjahr darf nicht größer als Sterbejahr sein");
-			$(event.currentTarget).val(lastDate);
-			return;
-		}
-		
-		if(!(/^\-?\d{0,4}$/.test($(event.currentTarget).val()))) {
-			alert("Ungültiges Jahr");
-			$(event.currentTarget).val(lastDate);
-			return;
-		}
 			
 		// Reset era selector
 		$("#eraSelector").val(0);
@@ -271,6 +260,36 @@ $(document).ready(function () {
 		}
 	}
 
+
+
+	function checkYearConstraints(beginYear, endYear) {
+		if(parseInt(beginYear) > parseInt(endYear)) {
+			alert("Jahr (von) darf nicht größer als Jahr (bis) sein");	
+			return false;
+		}
+
+		if(parseInt(beginYear) > new Date().getFullYear()) {
+			alert("Jahr (von) liegt in der Zukunft");
+			return false;
+		}
+
+		if(parseInt(endYear) > new Date().getFullYear()) {
+			alert("Jahr (bis) liegt in der Zukunft");
+			return false;
+		}
+		
+		if("-" == beginYear || !(/^\-?\d{0,4}$/.test(beginYear))) {
+			alert("Ungültiges Jahr (von)");
+			return false;
+		}
+		
+		if("-" == endYear || !(/^\-?\d{0,4}$/.test(endYear))) {
+			alert("Ungültiges Jahr (bis)");
+			return false;
+		}
+
+		return true;
+	}
 	/***
 	* Get all data inserted into the form and go to the results page
 	*/
@@ -301,6 +320,9 @@ $(document).ready(function () {
 			startdate = selectedDate.min;
 			enddate = selectedDate.max;
 		}*/
+		if(!checkYearConstraints(startdate, enddate)) {
+			return;
+		}
 
 		var suffix = "results.php?core=gnd&";
 		var target = '';

@@ -285,7 +285,7 @@ $(document).ready(function () {
 		$hline.append($("<th></th>").html("<b>Geburtsort</b>"));
 		$hline.append($("<th></th>").html("<b>Sterbeort</b>"));
 		$hline.append($("<th></th>").html("<b>Geburtsjahr</b>"));
-		$hline.append($("<th></th>").html("<b>Todesjahr</b>"));
+		$hline.append($("<th></th>").html("<b>Sterbejahr</b>"));
 		$hline.append($("<th></th>").html("<b>Beruf</b>"));
 		$hline.append($("<th class=\"invisible\"></th>").html("<b>GND ID</b>"));
 		$hline.append($("<th class=\"details-control sorting_disabled headrow\" rowspan=\"1\" colspan=\"1\" aria-label=\"\"></th>").html(""));
