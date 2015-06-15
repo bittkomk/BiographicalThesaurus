@@ -339,6 +339,7 @@ $(document).ready(function () {
 	  	);
 		dtable.draw();
 		$(".dataTables_filter input").attr("placeholder", "Name, Geburtsort, Sterbeort, Geburtsjahr, Todesjahr");
+		$(".dataTables_filter input").attr("title", "Name, Ort, Jahr oder Beruf eingeben, um Ergebnisse zu filtern");
 		$('#datatable tbody').on('click', 'td.details-control', function () {
 			var td = $(this);
 			var tr = $(this).closest('tr');
