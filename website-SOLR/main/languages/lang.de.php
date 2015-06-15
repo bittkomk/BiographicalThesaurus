@@ -72,6 +72,8 @@ $lang['SEARCH_CHECK_BOX3:'] = 'Wirkungsort ';
 $lang['SEARCH_CHECK_BOX4:'] = 'Zeitintervall löschen ';   
 $lang['warning_slider'] = 'Wählen Sie bitte mindestens eine Person, oder einen Beruf, oder einen Ort, oder ein Zeitintervall aus...';
 $lang['warning_place'] = 'Wählen Sie bitte einen Ortstyp aus...';
+$lang['SEARCH_BEGIN_DATE'] = 'Geburtsjahr';
+$lang['SEARCH_END_DATE'] = 'Sterbejahr';
 
 //explore.php
 $lang['EXPLORE_TITLE'] = 'Indizes ';

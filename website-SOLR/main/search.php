@@ -77,10 +77,14 @@
 							</div>
 							
 							<div class="form-group">				
+								<div class="form-group">
+									<label for="beginDate"><?php echo $lang['SEARCH_BEGIN_DATE']; ?></label><input id="beginDate" type="text" class="selectize-input">
+									<label for="endDate"><?php echo $lang['SEARCH_END_DATE']; ?></label><input id="endDate" type="text" class="selectize-input">
+								</div>
 						
 	 							
-								<div class="form-group">
-									<label for="slider"><?php echo $lang['SEARCH_TIME']; ?></label><div id="slider"></div>											   </div>
+							<!--	<div class="form-group">
+									<label for="slider"><?php echo $lang['SEARCH_TIME']; ?></label><div id="slider"></div>											   </div> -->
 
 								<div class="form-group">
 									<label for="eraSelector"><?php echo $lang['SEARCH_ERA']; ?></label>

@@ -4,6 +4,7 @@ $(document).ready(function () {
 	*/
 	var map = new Map('map').setView([51.962797, 7.621200], 8),
 		selectedDate = null,
+		lastDate = null,
 		era,
 		eraChangeFlag = false,
 		profession_data,
@@ -50,6 +51,28 @@ $(document).ready(function () {
 			goToResults();
 		}
 	});
+
+	$("#beginDate, #endDate").keydown(function(event) {
+		lastDate = $(event.currentTarget).val();
+	}); 	
+
+	$("#beginDate, #endDate").keyup(function(event) {
+		if(parseInt($("#beginDate").val()) > parseInt($("#endDate").val())) {
+			alert("Geburtsjahr darf nicht größer als Sterbejahr sein");
+			$(event.currentTarget).val(lastDate);
+			return;
+		}
+		
+		if(!(/^\-?\d{0,4}$/.test($(event.currentTarget).val()))) {
+			alert("Ungültiges Jahr");
+			$(event.currentTarget).val(lastDate);
+			return;
+		}
+			
+		// Reset era selector
+		$("#eraSelector").val(0);
+	});
+		
 
 	
 	/*** Functions
@@ -153,12 +176,14 @@ $(document).ready(function () {
 			});
 		}
 		if(_start) {
-			selectedDate = {min: _start, max: selectedDate.max};
-			$("#slider").editRangeSlider("values", selectedDate.min, selectedDate.max);
+			//selectedDate = {min: _start, max: selectedDate.max};
+			//$("#slider").editRangeSlider("values", selectedDate.min, selectedDate.max);
+			$("#beginDate").val(_start);
 		}
 		if(_end) {
-			selectedDate = {min: selectedDate.min, max: _end};
-			$("#slider").editRangeSlider("values", selectedDate.min, selectedDate.max);
+			//selectedDate = {min: selectedDate.min, max: _end};
+			//$("#slider").editRangeSlider("values", selectedDate.min, selectedDate.max);
+			$("#endDate").val(_end);
 		}
 		if(_occ) {
 			$("#select-occ").text(restoreTerm(_occ));
@@ -174,7 +199,7 @@ $(document).ready(function () {
 	/***
 	* Initialize the slider, set the values and add Listener for Changed Values
 	*/
-	function initSlider() {
+/*	function initSlider() {
 		$("#slider").editRangeSlider({
 			bounds: {min: -500, max: new Date().getFullYear()},
 			defaultValues:{min: 0, max: new Date().getFullYear()},
@@ -218,7 +243,7 @@ $(document).ready(function () {
 			eraChangeFlag = false;
 			selectedDate = {min: data.values.min, max: data.values.max};
 		});
-	}
+	}*/
 
 
 	function quoteSearchTerm(term) {
@@ -270,12 +295,12 @@ $(document).ready(function () {
 		   placetype.push("Birth");   
 		}	
 		
-		startdate = null;
-		enddate = null;
-		if(selectedDate) {
+		startdate = $("#beginDate").val();
+		enddate = $("#endDate").val();
+	/*	if(selectedDate) {
 			startdate = selectedDate.min;
 			enddate = selectedDate.max;
-		}
+		}*/
 
 		var suffix = "results.php?core=gnd&";
 		var target = '';
@@ -283,13 +308,13 @@ $(document).ready(function () {
 		if (person && person != "") {
 			target += "person=" + person;
 		}
-		if(startdate && startdate != "") {
+		if(startdate && startdate != "" && startdate != "-") {
 			if(target != targetControl) {
 				target += "&"
 			}
 			target += "beginDate=" + startdate;
 		}
-		if(enddate && enddate != "") {
+		if(enddate && enddate != "" && enddate != "-") {
 			if(target != targetControl) {
 				target += "&"
 			}
@@ -344,18 +369,21 @@ $(document).ready(function () {
 		var eras = [{min: null,max: null}, {min: null,max: 500}, {min: 500,max: 1500}, {min: 500,max: 900}, {min: 900,max: 1250}, {min: 1250,max: 1500}, {min: 1500,max: null}, {min: 1500,max: 1800}, {min: 1500,max: 1650}, {min: 1680,max: 1800}, {min: 1800,max: null}, {min: 1800,max: 1870}, {min: 1871,max: 1945}, {min: 1945, max: null} ]
 		var startdate = eras[index].min;
 		var enddate = eras[index].max;
-		var sliderValues = $("#slider").editRangeSlider("values");
+//		var sliderValues = $("#slider").editRangeSlider("values");
 		if(startdate == null) {
 			if(enddate == null) {
-				startdate = sliderValues.min;
-				enddate = sliderValues.max;
+				startdate = parseInt($("#beginDate").val());//sliderValues.min;
+				enddate = parseInt($("#endDate").val());  //sliderValues.max;
 			} else {
 				startdate = 0;
 			}
 		} else if(enddate == null) {
 			enddate = new Date().getFullYear();
 		}
-		$("#slider").editRangeSlider("values", startdate, enddate);
+		//$("#slider").editRangeSlider("values", startdate, enddate);
+		$("#beginDate").val(startdate);
+		$("#endDate").val(enddate);		
+
 		selectedDate = {min: startdate, max: enddate}
 	});
 
@@ -393,8 +421,11 @@ $(document).ready(function () {
 	*/
 	map.addTileLayer(tilelayer);
 
-	initSlider();
+//	initSlider();
 	map.initLeafletDraw();
+
+	$("#beginDate").val(-500);
+	$("#endDate").val(new Date().getFullYear());
 
 	//tick checkboxes for place types
 	$('#box_birthplace').prop('checked', true);
