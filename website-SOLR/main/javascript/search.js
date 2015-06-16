@@ -59,7 +59,8 @@ $(document).ready(function () {
 	$("#beginDate, #endDate").keyup(function(event) {
 			
 		// Reset era selector
-		$("#eraSelector").val(0);
+		era = 0;
+		$("#eraSelector").val(era);
 	});
 		
 
@@ -169,6 +170,11 @@ $(document).ready(function () {
 			//$("#slider").editRangeSlider("values", selectedDate.min, selectedDate.max);
 			$("#beginDate").val(_start);
 		}
+		if(_era) {
+			eraChangeFlag = true;
+			$("#eraSelector").val(_era);
+			era = _era;
+		}
 		if(_end) {
 			//selectedDate = {min: selectedDate.min, max: _end};
 			//$("#slider").editRangeSlider("values", selectedDate.min, selectedDate.max);
@@ -178,10 +184,6 @@ $(document).ready(function () {
 			$("#select-occ").text(restoreTerm(_occ));
 			selectizeOcc.setValue(restoreTerm(_occ));
 			selectizeOcc.setTextboxValue(restoreTerm(_occ));
-		}
-		if(_era) {
-			eraChangeFlag = true;
-			$("#eraSelector").val(_era);
 		}
 	}
 
