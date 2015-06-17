@@ -70,28 +70,12 @@ $(document).ready(function () {
 	/*** Functions
 	*
 	*/
-
-	/* Cf. http://stackoverflow.com/questions/12147410/different-utf-8-signature-for-same-diacritics-umlauts-2-binary-ways-to-write and http://www.utf8-chartable.de/unicode-utf8-table.pl?start=768 for some context info */
 	function removeStrangeUmlautChars(str) {
-		str = str.replace(/O\u0308/g, "Ö");
-		str = str.replace(/o\u0308/g, "ö");
-		str = str.replace(/U\u0308/g, "Ü");
-		str = str.replace(/u\u0308/g, "ü");
-		str = str.replace(/A\u0308/g, "Ä");
-		str = str.replace(/a\u0308/g, "ä");
-
-		return str;
+		return new Query().removeStrangeUmlautChars(str);
 	}
 
 	function insertStrangeUmlautChars(str) {		
-		str = str.replace(/Ö/g, "O\u0308");
-		str = str.replace(/ö/g, "o\u0308");
-		str = str.replace(/Ü/g, "U\u0308");
-		str = str.replace(/ü/g, "u\u0308");
-		str = str.replace(/Ä/g, "A\u0308");
-		str = str.replace(/ä/g, "a\u0308");
-
-		return str;
+		return new Query().insertStrangeUmlautChars(str);
 	}
 
 	/***
@@ -298,7 +282,7 @@ $(document).ready(function () {
 	* Get all data inserted into the form and go to the results page
 	*/
 	function goToResults() {
-		var person = $('#person').val();
+		var person = insertStrangeUmlautChars($('#person').val());
 		var occ = $('#select-occ').text();
 		var place = insertStrangeUmlautChars($('#select-place').text());
 		placeTmp = map.returnPolygonShape();

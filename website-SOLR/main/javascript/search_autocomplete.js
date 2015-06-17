@@ -18,7 +18,7 @@ $( "#person" ).autocomplete(
 //      suggester.setSortField("preferredNameForThePerson");
 
       var pred = function(t, v) {
-		var regex1 = new RegExp("(\\b|^)"+t, "gi");
+		var regex1 = new RegExp("(\\b|^)"+suggester.insertStrangeUmlautChars(t), "gi");
 		//var regex2 = new RegExp("(\b|^)" + t + ".*(\b|$)", "gi");
 //		console.log("check regex for", regex1, t, v, ":", regex1.test(v));
 		return regex1.test(v) // || regex2.test(v));
