@@ -30,7 +30,9 @@ $(document).ready(function () {
 			labelField: 'occupation',
 			searchField: 'occupation',
 			openOnFocus: false,
-			maxOptions: 10000
+			maxOptions: 10000,
+			inputClass: 'selectize-input select-occ'
+//			dropdownParent: 'body'
 		}),
     	$selectPlace = $('#select-place').selectize({
 			sortField: {field: 'place'},
@@ -324,7 +326,7 @@ $(document).ready(function () {
 		}*/
 		if(!checkYearConstraints(startdate, enddate)) {
 			return;
-		}
+		}	
 
 		var suffix = "results.php?core=gnd&";
 		var target = '';

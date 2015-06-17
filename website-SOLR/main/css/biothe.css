@@ -363,3 +363,54 @@
 	#exploreHelpContainer {
 		margin-bottom: 50%;
 	}
+
+
+/*	.selectize-control.single .selectize-input input {
+		width: 250px!important;
+	}*/
+
+/*	.select-occ input {
+		width: 250px!important
+	}*/
+
+	.form-control {
+		width: 50%;
+		text-align: left !important;
+	}
+
+	.small-form-control {
+		width: 12%;
+	}
+
+	.form-buttons {
+		text-align: left !important;
+		width: 70%;
+		padding-right: 0px !important;
+		float: none;
+	}
+
+
+	.place-checkboxes {
+		text-align: left !important;
+		width: 70%;
+		float: none;
+		padding-right: 0px !important;
+		margin-bottom: -10px;
+		
+	}
+
+
+	.form-horizontal .checkbox-inline {
+		display: inline-block;
+		padding-left: 15px;
+		margin-top: -45px;
+		margin-bottom: 0px;
+		font-weight: 400;
+		vertical-align: middle;
+		cursor: pointer;
+	}
+
+
+	.form-horizontal .checkbox-inline+input[type="checkbox"] {
+		margin-top: -33px;
+	}

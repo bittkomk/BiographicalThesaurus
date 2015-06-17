@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	
-	<link rel="stylesheet" href="../assets/css/selectize.css">
+	<link rel="stylesheet" href="../assets/css/selectize.bootstrap3.css">
 	<!-- Leaflet -->
 	<link rel="stylesheet" href="../assets/leaflet-0.6.4/leaflet.css" type="stylesheet"/>
 	<!-- Leaflet.markercluster -->
@@ -47,48 +47,56 @@
 	<body>
 		<div id="searchContainer" class="container-fluid">
 		    <div class="row">
-		        <div class="col-xs-8 col-md-6 pull-left">
-		            <form id="searchform" class="">		
-						<fieldset>
+		        <div class="col-xs-7 col-md-5">
+		            <form class="form-horizontal">		
+						<!-- <fieldset> -->
 						
-							
+
 							<div class="form-group">
-								<label for="person" class=""><?php echo $lang['SEARCH_POI']; ?></label>
-								<input id="person" type="text" placeholder="<?php echo $lang['SEARCH_POI2']; ?>" class="selectize-input">
+								<label for="person" class="control-label col-xs-1"><?php echo $lang['SEARCH_POI']; ?>: </label>
+								<input id="person" type="text" placeholder="<?php echo $lang['SEARCH_POI2']; ?>" class="selectize-input form-control col-xs-11">
 							</div> 
-
+			    <!--</form>-->
+			    <!--<form class="form-horizontal">-->
 
 							<div class="form-group">
-								<label for="select-occ" class=""><?php echo $lang['SEARCH_OCC']; ?></label>
-								<select id="select-occ" placeholder="<?php echo $lang['SEARCH_OCC2']; ?>"></select>
+								<label for="select-occ" class="control-label col-xs-1"><?php echo $lang['SEARCH_OCC']; ?>: </label> 
+								<select id="select-occ" class="form-control col-xs-11" placeholder="<?php echo $lang['SEARCH_OCC2']; ?>"></select>
 							</div>
+			   <!-- </form> -->
+			   <!-- <form class="form-inline"> -->
 
 							<div class="form-group">
-								<label for="select-place"><?php echo $lang['SEARCH_PLACE2']; ?></label>
-								<select id="select-place" placeholder="<?php echo $lang['SEARCH_PLACE']; ?>"></select>		
+								<label for="select-place" class="control-label col-xs-1"><?php echo $lang['SEARCH_PLACE2']; ?>: </label>
+								<select id="select-place" class="form-control col-xs-11" placeholder="<?php echo $lang['SEARCH_PLACE']; ?>"></select>		
+							</div>
 									
-								<div class="form-group">
+							<div class="form-group">
+								<div class="control-label col-xs-1"></div>
+								<div class="col-xs-11 place-checkboxes">
 									<label for="box_birthplace" class="checkbox-inline"><?php echo $lang['SEARCH_CHECK_BOX1:']; ?></label>
-									<input type="checkbox" id="box_birthplace">
+									<input type="checkbox" class="form-control"  id="box_birthplace">
 									<label for="box_deathplace" class="checkbox-inline"><?php echo $lang['SEARCH_CHECK_BOX2:']; ?></label>    				                                           <input type="checkbox" id="box_deathplace">
 									<label for="box_activityplace" class="checkbox-inline"><?php echo $lang['SEARCH_CHECK_BOX3:']; ?></label>
 									<input type="checkbox" id="box_activityplace" >
 								</div>
 							</div>
-							
+			  <!--</form>-->
+			  <!--<form class="form-inline">							-->
 							<div class="form-group">				
-								<div class="form-group">
-									<label for="beginDate"><?php echo $lang['SEARCH_BEGIN_DATE']; ?></label><input id="beginDate" type="text" class="selectize-input">
-									<label for="endDate"><?php echo $lang['SEARCH_END_DATE']; ?></label><input id="endDate" type="text" class="selectize-input">
-								</div>
-						
+ 								<!-- <div class="form-group"> -->
+									<label for="beginDate" class="control-label col-xs-1 "><?php echo $lang['SEARCH_BEGIN_DATE']; ?>: </label><input id="beginDate" type="text" class="selectize-input form-control col-xs-11 small-form-control">
+									<label for="endDate">&nbsp;<?php echo $lang['SEARCH_END_DATE']; ?>&nbsp;</label><input id="endDate" type="text" class="selectize-input form-control small-form-control">
+						 </div>
+			  <!--</form>				-->
+		          <!--<form class="form-inline">-->
 	 							
 							<!--	<div class="form-group">
 									<label for="slider"><?php echo $lang['SEARCH_TIME']; ?></label><div id="slider"></div>											   </div> -->
 
-								<div class="form-group">
-									<label for="eraSelector"><?php echo $lang['SEARCH_ERA']; ?></label>
-									<select id="eraSelector">
+								<div class="form-group"> 
+									<label for="eraSelector" class="control-label col-xs-1"><?php echo $lang['SEARCH_ERA']; ?>: </label>
+									<select id="eraSelector" class="selectize-input form-control col-xs-11">
 									<option value="0"><?php echo $lang['SEARCH_ERA_CHOICES'][0];?></option>
 										<option value="1"><?php echo $lang['SEARCH_ERA_CHOICES'][1];?></option>
 										<option value="2"><?php echo $lang['SEARCH_ERA_CHOICES'][2];?></option>
@@ -106,12 +114,21 @@
 									</select>
 								</div>
 
-							</div>
-						</fieldset>	
+							
+						<!-- </fieldset>	 -->
 					</form>
-					<button class="btn btn-primary" id="btn-search"><?php echo $lang['SEARCH_SUBMIT']; ?></button>
-					<button class="btn btn-primary" type="reset" onclick='window.location="search.php"' ><?php echo $lang['SEARCH_RESET']; ?></button>
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="control-label col-xs-1"></div>
+							<div class="form-buttons col-xs-11">
+								<button class="btn btn-primary" id="btn-search"><?php echo $lang['SEARCH_SUBMIT']; ?></button>
+								<button class="btn btn-primary" type="reset" onclick='window.location="search.php"' ><?php echo $lang['SEARCH_RESET']; ?></button>
+							</div>
+						</div>
+					</div>
+					<!--</form>-->
 				</div>
+			<div id="space" class="col-xs-1 col-md-1"></div>
 		        <div id="map" class="col-xs-4 col-md-6 pull-right"></div>
 
 		        <div id="dialog-confirm"></div>
