@@ -273,10 +273,12 @@ var details = new function() {
 						$('#div' + target + gndID).html(litTable);
 
 						var dtablelit = $('#lit' + target + gndID).DataTable( {
-							"order": [[ 1, "asc" ]],
+							"order": [[ 2, "desc" ]],
 							"bPaginate": false,
 							"bFilter": false,
-							"bInfo": false
+							"bInfo": false,
+							"scrollY": "200px",
+							"scrollCollapse": false
 						});
 
 						dtablelit.draw();
