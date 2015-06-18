@@ -26,6 +26,8 @@
 	#map {
 		height: 720px;
 		margin: 0;
+		margin-right: 3%;
+		right: 0; 
 	}
 
 
@@ -57,9 +59,9 @@
 /* ------------------------------ css classes (in alphabetical order) ------------------------------ */
 
 
-	.affix {
+	/*.affix {
 		right: 0;
-	}
+	}*/
 	/* specifying the properties of dropdown list (for dropdown buttons) */
 	.dropdown-menu {
 	  z-index: 1000;
@@ -313,8 +315,12 @@
 	}
 
 	#resultdiv {
-		height: 400px;	
+		height: auto;	
+	/*	margin-left: 3%; */
+	}
 
+	#result-container {
+		margin-left: 3%;
 	}
 
 	#titleExportedResults {
@@ -414,3 +420,44 @@
 	.form-horizontal .checkbox-inline+input[type="checkbox"] {
 		margin-top: -33px;
 	}
+
+
+
+	html, body { 
+		height: 100%;
+	}
+
+	#wrap {
+		min-height: 100%;
+		height: auto !important;
+		margin: 0 auto -60px;
+		padding: 0 0 60px;
+	}
+
+	#footer {
+		height: 60px;	
+	}
+
+	.affix-bottom {
+		position: absolute;
+	}
+
+	.affix {
+
+
+		position: fixed;
+		right: 0;
+
+	}
+
+
+	.affix-top {
+/*		right: 0px; */
+	}
+
+
+
+
+
+
+

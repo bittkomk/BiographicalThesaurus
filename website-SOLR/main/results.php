@@ -37,11 +37,11 @@
 			include 'banner/banner.php';
 		?>
 
-		<div class="container-fluid"> 
+		<div id="wrap" class="container-fluid"> 
 
 			<div id="resultsContainerRow" class="row" >
 				<!-- container for the result form (the result form is on the left hand-side) -->
-				<div id="result-container" class="col-xs-6 col-md-6 pull-left"> 
+				<div id="result-container" class="col-xs-5 col-md-5 pull-left"> 
 					<span id="resultsBackLink"><a href="#" onclick="history.go(-1);return false;">&lt;&lt; <?php echo $lang['RESULT_GO_BACK']; ?></a></span>
 
 
@@ -65,33 +65,34 @@
 					<div id="resultdiv"></div>
 					<!-- this span element is used to store the title (in german or in english) of the additional window displayed when the results are exported as HTML -->
 					<span id="titleExportedResults"><?php echo $lang['TITLE_EXPORTED_RESULTS']; ?></span> 
+					<span id="resultsButtons">
+						<p>
+							
+							<button id="exportButton" class="btn btn-primary btn-sm"><?php echo $lang['RESULT_EXPORT']; ?></button>
+							<!--
+							<div id="exportButton" class="btn-group">
+								<button class="btn btn-primary btn-mini"><?php echo $lang['RESULT_EXPORT']; ?></button>
+								<button class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown">
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu"> 
+									<li><a tabindex="-1" href="#"><?php echo $lang['RESULT_EXPORT_DROPDOWN']; ?> HTML</a></li>
+									<li class="divider"></li>
+									<li><a tabindex="-1" href="#"><?php echo $lang['RESULT_EXPORT_DROPDOWN']; ?>...</a></li>
+									<li class="divider"></li>
+									<li><a tabindex="-1" href="#"><?php echo $lang['RESULT_EXPORT_DROPDOWN']; ?>...</a></li>
+								</ul>
+							</div>
+							-->
+							<button id="printButton" class="btn btn-primary btn-sm"><?php echo $lang['RESULT_PRINT']; ?></button>
+							<a href="search.php" class="btn btn-danger btn-sm"><?php echo $lang['RESULT_START_NEW']; ?></a>
+						</p>
+					</span>
 				</div>
+				<div id="space" class="col-xs-1 col-md-1"></div>
 				<!-- container for the map (the map is on the right hand-side) -->
-				<div id="map" class="col-xs-6 col-md-6 pull-right" data-spy="affix" data-offset-top="0"></div>
+				<div id="map" class="col-xs-5 col-md-5 pull-right" data-spy="affix" data-offset-top="0"></div>
 			</div>
-			<span id="resultsButtons">
-				<p>
-					
-					<button id="exportButton" class="btn btn-primary btn-sm"><?php echo $lang['RESULT_EXPORT']; ?></button>
-					<!--
-					<div id="exportButton" class="btn-group">
-						<button class="btn btn-primary btn-mini"><?php echo $lang['RESULT_EXPORT']; ?></button>
-						<button class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown">
-							<span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu"> 
-							<li><a tabindex="-1" href="#"><?php echo $lang['RESULT_EXPORT_DROPDOWN']; ?> HTML</a></li>
-							<li class="divider"></li>
-							<li><a tabindex="-1" href="#"><?php echo $lang['RESULT_EXPORT_DROPDOWN']; ?>...</a></li>
-							<li class="divider"></li>
-							<li><a tabindex="-1" href="#"><?php echo $lang['RESULT_EXPORT_DROPDOWN']; ?>...</a></li>
-						</ul>
-					</div>
-					-->
-					<button id="printButton" class="btn btn-primary btn-sm"><?php echo $lang['RESULT_PRINT']; ?></button>
-					<a href="search.php" class="btn btn-danger btn-sm"><?php echo $lang['RESULT_START_NEW']; ?></a>
-				</p>
-			</span>
 		</div>
 
 		<!-- include the footer -->

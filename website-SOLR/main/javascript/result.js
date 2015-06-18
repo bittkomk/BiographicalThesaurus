@@ -58,10 +58,11 @@ $(document).ready(function () {
 	};
 
 	function toggleMap(pushState) {
+		//console.error("toggleMap called", "hidemap: " + hideMap, "pushState: " + pushState);
 		if(!hideMap) {
 			$("#btn-toggle-map").text(">");
 			$("#map").show();
-			$("#result-container").attr("class","col-xs-6 col-md-6 pull-left");
+			$("#result-container").attr("class","col-xs-5 col-md-5 pull-left");
 			$('#datatable').width($('#resultdiv').width());
 			dtable.draw();
 			if (pushState)
@@ -509,7 +510,8 @@ $(document).ready(function () {
 		query.setSpatial(place);
 	}
 
-	hideMap = Boolean(getParam('hideMap'));
+	hideMap = Boolean(getParam('hideMap')) || false;
+	toggleMap(false);	
 
 	var begindate = getParam('beginDate');
 	if(begindate) {
@@ -547,7 +549,11 @@ $(document).ready(function () {
 		processData(result.response.docs);
 		allData = result.response.docs;
 
-		toggleMap(false);	
 	});	
+
+	// corrects width of affixed map
+//	var $affixElement = $('div[data-spy="affix"]');
+//	$affixElement.width($affixElement.width());
+	
 	
 });
