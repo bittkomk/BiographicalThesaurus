@@ -45,6 +45,7 @@
 		include 'banner/banner.php';
 	?>
 	<body>
+		<div id="wrap">
 		<div id="searchContainer" class="container-fluid">
 		    <div class="row">
 		        <div class="col-xs-7 col-md-5">
@@ -134,6 +135,7 @@
 		        <div id="dialog-confirm"></div>
 
 		    </div>
+		</div>
 		</div>
 
 		<!-- include the footer -->

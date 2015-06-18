@@ -30,7 +30,7 @@ include 'common.php';
 	  $_SESSION['current_page'] = "home";
 	  include 'banner/banner.php'; 
 	 ?>
-    
+	<div id="wrap">    
 	<!-- specific content for the current page -->
 	<div id="homeContainer" class="container-fluid" > 
 	
@@ -62,6 +62,7 @@ include 'common.php';
        </div>
 
 	
+	</div>
 	</div>
 	
 	<!-- include the footer -->

@@ -89,7 +89,7 @@
 						</p>
 					</span>
 				</div>
-				<div id="space" class="col-xs-1 col-md-1"></div>
+				<div id="space" class="col-xs-2 col-md-2"></div>
 				<!-- container for the map (the map is on the right hand-side) -->
 				<div id="map" class="col-xs-5 col-md-5 pull-right" data-spy="affix" data-offset-top="-1"></div>
 			</div>
