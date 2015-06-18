@@ -164,11 +164,15 @@
 		width: 18px;
 	 }
 
-	 table.dataTable table.personDetails  {
+	 table.dataTable table.personDetails   {
 	 	padding: 4px;
 		background-color: #e3e9f0;
 		width: 100%;	
 	}	
+
+      	table.dataTable table.personDetails tbody tr {
+		background-color: #e3e9f0;
+	}
 
 
 	 table.dataTable table.personDetails tbody tr:hover {
@@ -226,6 +230,8 @@
          table.dataTable table.litratureTable tr.even>.sorting_1 {
 		background-color: #e3e9f0;
 	}
+
+
 
 
 
