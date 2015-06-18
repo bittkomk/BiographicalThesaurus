@@ -91,7 +91,7 @@
 				</div>
 				<div id="space" class="col-xs-1 col-md-1"></div>
 				<!-- container for the map (the map is on the right hand-side) -->
-				<div id="map" class="col-xs-5 col-md-5 pull-right" data-spy="affix" data-offset-top="0"></div>
+				<div id="map" class="col-xs-5 col-md-5 pull-right" data-spy="affix" data-offset-top="-1"></div>
 			</div>
 		</div>
 
