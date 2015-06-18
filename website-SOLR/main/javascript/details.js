@@ -150,7 +150,7 @@ var details = new function() {
 	this.loadLitrature = function(target, gndID, title) {
 		
 		var lobidURL = "http://lobid.org/resource?" + target + "=" + gndID;
-		var literatureLinkPrefix = "http://lobid.org/nwbib/";
+		var literatureLinkPrefix = "http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3D"; //"http://lobid.org/nwbib/";
 
 		$.ajax({
 			url : lobidURL,
