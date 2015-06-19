@@ -149,7 +149,7 @@ var details = new function() {
 	// Litrature loading via lobid.org
 	this.loadLitrature = function(target, gndID, title) {
 		
-		var lobidURL = "http://lobid.org/resource?" + target + "=" + gndID;
+		var lobidURL = "http://lobid.org/resource?" + target + "=" + gndID + "&sort=newest&size=100";
 		var literatureLinkPrefix = "http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3D"; //"http://lobid.org/nwbib/";
 
 		$.ajax({
