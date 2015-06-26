@@ -42,8 +42,11 @@ $(document).ready(function () {
 			openOnFocus: false,
 			maxOptions: 10000			
 		}),
+		$selectEra = $('#eraSelector').selectize(),
 		selectizeOcc = $selectOcc[0].selectize,
-		selectizePlace = $selectPlace[0].selectize;
+		selectizePlace = $selectPlace[0].selectize,
+		selectizeEra = $selectEra[0].selectize;
+		
 
 
 	$("input").keypress(function(event) {
@@ -62,7 +65,7 @@ $(document).ready(function () {
 			
 		// Reset era selector
 		era = 0;
-		$("#eraSelector").val(era);
+		selectizeEra.setValue(era);
 	});
 		
 
@@ -158,7 +161,7 @@ $(document).ready(function () {
 		}
 		if(_era) {
 			eraChangeFlag = true;
-			$("#eraSelector").val(_era);
+			selectizeEra.setValue(_era);
 			era = _era;
 		}
 		if(_end) {
@@ -373,7 +376,7 @@ $(document).ready(function () {
 	* Is called when an era is changed
 	*/
 	$("#eraSelector").on('change', function (e, data) {
-		var index = $("#eraSelector option:selected").index();
+		var index = selectizeEra.getValue(); //$("#eraSelector option:selected").index();
 		era = index;
 		eraChangeFlag = true;
 		var eras = [{min: null,max: null}, {min: null,max: 500}, {min: 500,max: 1500}, {min: 500,max: 900}, {min: 900,max: 1250}, {min: 1250,max: 1500}, {min: 1500,max: null}, {min: 1500,max: 1800}, {min: 1500,max: 1650}, {min: 1680,max: 1800}, {min: 1800,max: null}, {min: 1800,max: 1870}, {min: 1871,max: 1945}, {min: 1945, max: null} ]

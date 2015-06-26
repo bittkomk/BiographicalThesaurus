@@ -97,8 +97,8 @@
 
 								<div class="form-group"> 
 									<label for="eraSelector" class="control-label col-xs-1"><?php echo $lang['SEARCH_ERA']; ?>: </label>
-									<select id="eraSelector" class="selectize-input form-control col-xs-11">
-									<option value="0"><?php echo $lang['SEARCH_ERA_CHOICES'][0];?></option>
+									<select id="eraSelector" class="form-control col-xs-11">
+										<option value="0"><?php echo $lang['SEARCH_ERA_CHOICES'][0];?></option>
 										<option value="1"><?php echo $lang['SEARCH_ERA_CHOICES'][1];?></option>
 										<option value="2"><?php echo $lang['SEARCH_ERA_CHOICES'][2];?></option>
 										<option value="3"><?php echo $lang['SEARCH_ERA_CHOICES'][3];?></option>	 	
